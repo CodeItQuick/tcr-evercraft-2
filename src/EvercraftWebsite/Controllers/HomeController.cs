@@ -23,7 +23,7 @@ namespace EvercraftWebsite.Controllers
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
 
-            return View();
+            return View(dnDCharacters);
         }
 
         // GET: HomeController/Create
