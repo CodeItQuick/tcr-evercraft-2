@@ -3,7 +3,7 @@ namespace tcr_evercraft_2_tests;
 public class Tests
 {
     [SetUp]
-    public void Setup()
+    public void Setup(TestingWebAppFactory<Program> factory)
     {
     }
 
