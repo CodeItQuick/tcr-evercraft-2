@@ -36,7 +36,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return RedirectToAction("Index");
         }
 
         // POST: HomeController/Edit/5
