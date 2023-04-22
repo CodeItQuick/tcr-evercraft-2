@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using EvercraftWebsite.Data;
+using EvercraftWebsite.Views.Home;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,8 @@ namespace EvercraftWebsite.Controllers
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
 
-            return View();
+            HomeModel indexModel = new HomeModel(new Logger<HomeModel>(null));
+            return View(indexModel);
         }
 
         // GET: HomeController/Create
@@ -61,6 +63,11 @@ namespace EvercraftWebsite.Controllers
         //         return View();
         //     }
         // }
+    }
+
+    public class IndexModelView 
+    {
+        public List<DnDCharacter>? DnDCharacters { get; set; }
     }
 
     public class EvercraftDbContext : DbContext
