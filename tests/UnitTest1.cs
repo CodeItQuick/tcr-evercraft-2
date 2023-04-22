@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using EvercraftWebsite.Controllers;
+using EvercraftWebsite.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace tcr_evercraft_2_tests;
 
@@ -79,7 +81,8 @@ public class Tests
     [Test]
     public async Task CanRetrieveViewFromIndex()
     {
-        var homeController = new HomeController();
+        var homeController = new HomeController(new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options);
 
         var viewResult = homeController.Index() as ViewResult;
         
