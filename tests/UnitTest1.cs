@@ -14,15 +14,8 @@ public class Tests
         _client = testingWebAppFactory.CreateClient();
     }
 
-    // [Test]
-    // public async Task MainIndexSmokeTest()
-    // {
-    //     var response = await _client.GetAsync($"/Index");
-    //
-    //     Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-    // }
     [Test]
-    public async Task HomeIndexSmokeTestPassing()
+    public async Task DummyTest()
     {
         var response = await _client.GetAsync($"/Home/Index");
 
