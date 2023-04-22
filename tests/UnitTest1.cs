@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using EvercraftWebsite.Controllers;
 
 namespace tcr_evercraft_2_tests;
 
@@ -74,5 +75,14 @@ public class Tests
         var response = await _client.GetAsync($"/Home/Delete/1");
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+    }
+    [Test]
+    public async Task CanRetrieveViewFromIndex()
+    {
+        var homeController = new HomeController();
+
+        var viewResult = homeController.Index() as ViewResult;
+        
+        Assert.IsNotNull(viewResult);
     }
 }
