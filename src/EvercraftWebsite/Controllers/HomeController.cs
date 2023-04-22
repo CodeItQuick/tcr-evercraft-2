@@ -7,6 +7,7 @@ namespace EvercraftWebsite.Controllers
     {
         public HomeController()
         {
+            
         }
 
         // GET: HomeController
