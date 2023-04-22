@@ -22,7 +22,7 @@ public class Tests
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
-    public async Task MainIndexSmokeTest()
+    public async Task MainIndexPopulatesPage()
     {
         var response = await _client.GetAsync($"/Index");
 
