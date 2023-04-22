@@ -33,6 +33,17 @@ public class Tests
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
+    public async Task HomeIndexPostWithCharacterNameRequestPopulatesPage()
+    {
+        var response = await _client.PostAsync($"/Home/Index", new FormUrlEncodedContent(
+            new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("characterName", "Hello World")
+            }));
+
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+    }
+    [Test]
     public async Task MainIndexPopulatesPage()
     {
         var response = await _client.GetAsync($"/Index");
