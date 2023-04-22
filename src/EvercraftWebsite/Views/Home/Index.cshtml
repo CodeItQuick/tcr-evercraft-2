@@ -8,11 +8,18 @@
 
 <div class="text-center">
     <h1 class="display-4">Evercraft</h1>
-    <form>
+    <form method="POST">
         <div class="mb-3">
             <label for="characterName" class="form-label">Character Name</label>
-            <input class="form-control" id="characterName">
+            <input type="text" class="form-control" id="characterName" name="characterName" value="" />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button
+            type="submit"
+            asp-controller="Home"
+            asp-action="Create"
+            asp-route-charactername="asdf"
+            class="btn btn-primary">
+            Submit
+        </button>
     </form>
 </div>
