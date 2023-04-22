@@ -17,43 +17,11 @@ namespace EvercraftWebsite.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST: HomeController/Create
-        // TODO: No idea how this works
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public ActionResult Create(IFormCollection collection)
-        // {
-        //     try
-        //     {
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     catch
-        //     {
-        //         return View();
-        //     }
-        // }
-
         // GET: HomeController/Edit/5
         public ActionResult Edit(int id)
         {
             return RedirectToAction("Index");
         }
-
-        // POST: HomeController/Edit/5
-        // TODO: No idea how this works
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public ActionResult Edit(int id, IFormCollection collection)
-        // {
-        //     try
-        //     {
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     catch
-        //     {
-        //         return View();
-        //     }
-        // }
 
         // GET: HomeController/Delete/5
         public ActionResult Delete(int id)
