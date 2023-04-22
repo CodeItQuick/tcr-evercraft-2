@@ -1,4 +1,5 @@
-﻿using EvercraftWebsite.Data;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using EvercraftWebsite.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -63,5 +64,12 @@ namespace EvercraftWebsite.Controllers
         {
             
         }
+        
+        public virtual DbSet<DnDCharacter> DnDCharacters { get; set; }
+    }
+
+    [Table("DnDCharacter")]
+    public class DnDCharacter
+    {
     }
 }
