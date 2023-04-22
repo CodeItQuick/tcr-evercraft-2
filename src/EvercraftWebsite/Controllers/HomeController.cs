@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using EvercraftWebsite.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -71,5 +72,9 @@ namespace EvercraftWebsite.Controllers
     [Table("DnDCharacter")]
     public class DnDCharacter
     {
+        [Key]
+        public int Id { get; set; }
+        
+        public string CharacterName { get; set; }
     }
 }
