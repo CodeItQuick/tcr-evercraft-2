@@ -44,7 +44,6 @@ public class Tests
             }));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        
         var queryKeys = response.RequestMessage?.RequestUri?.Query;
         Assert.That(queryKeys, Is.EqualTo("?Key=characterName&Value=HelloWorld"));
     }
