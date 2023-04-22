@@ -12,9 +12,9 @@ namespace EvercraftWebsite.Controllers
         }
 
         // GET: HomeController/Create
-        public ActionResult Create(string? characterName)
+        public ActionResult Create(string characterName)
         {
-            return RedirectToAction("Index", new KeyValuePair<string,string>("characterName", characterName ?? "defaultCharacterName"));
+            return RedirectToAction("Index", new KeyValuePair<string,string>("characterName", characterName));
         }
 
         // GET: HomeController/Edit/5
