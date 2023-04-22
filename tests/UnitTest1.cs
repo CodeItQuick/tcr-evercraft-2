@@ -31,7 +31,8 @@ public class Tests
             }));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        Assert.That(response.RequestMessage?.RequestUri?.Query, Is.EqualTo("?Key=characterName"));
+        var queryKeys = response.RequestMessage?.RequestUri?.Query;
+        Assert.That(queryKeys, Is.EqualTo("?Key=characterName"));
     }
     [Test]
     public async Task HomeIndexPostWithCharacterNameRequestPopulatesPage()
