@@ -29,7 +29,7 @@ public class Tests
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
-    public async Task CreateIndexPopulatesIdxPage()
+    public async Task CreateIndexPopulatesIndexPage()
     {
         var response = await _client.GetAsync($"/Home/Create/1");
 
