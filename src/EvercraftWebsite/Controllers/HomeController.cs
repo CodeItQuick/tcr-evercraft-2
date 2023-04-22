@@ -7,13 +7,13 @@ namespace EvercraftWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _applicationDbContext;
+        private EvercraftDbContext _applicationDbContext;
 
         public HomeController()
         {
-            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            DbContextOptions<EvercraftDbContext> options = new DbContextOptionsBuilder<EvercraftDbContext>()
                 .UseInMemoryDatabase("TemporaryDatabase").Options;
-            _applicationDbContext = new ApplicationDbContext(options);
+            _applicationDbContext = new EvercraftDbContext(options);
         }
 
         // GET: HomeController
@@ -55,5 +55,13 @@ namespace EvercraftWebsite.Controllers
         //         return View();
         //     }
         // }
+    }
+
+    public class EvercraftDbContext : DbContext
+    {
+        public EvercraftDbContext(DbContextOptions<EvercraftDbContext> options): base(options)
+        {
+            
+        }
     }
 }
