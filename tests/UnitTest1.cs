@@ -77,7 +77,7 @@ public class Tests
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
-    public async Task CanRetrieveViewFromIndexes()
+    public async Task CanRetrieveViewFromIndex()
     {
         var homeController = new HomeController();
 
