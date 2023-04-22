@@ -15,7 +15,7 @@ public class Tests
     }
 
     [Test]
-    public async Task HomeIndexPopulatesPage()
+    public async Task HomeIndexPopulatesPages()
     {
         var response = await _client.GetAsync($"/Home/Index");
 
