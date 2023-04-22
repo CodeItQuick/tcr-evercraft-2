@@ -24,7 +24,7 @@ namespace EvercraftWebsite.Controllers
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
 
-            HomeModel indexModel = new HomeModel();
+            HomeModel indexModel = new HomeModel() { DnDCharacters = dnDCharacters };
             return View(indexModel);
         }
 

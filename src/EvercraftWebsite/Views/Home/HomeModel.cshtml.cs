@@ -1,3 +1,4 @@
+using EvercraftWebsite.Controllers;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EvercraftWebsite.Views.Home;
@@ -14,6 +15,8 @@ public class HomeModel : PageModel
     {
         _logger = logger;
     }
+
+    public List<DnDCharacter>? DnDCharacters { get; set; }
 
     public void OnGet()
     {
