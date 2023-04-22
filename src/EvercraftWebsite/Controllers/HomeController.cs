@@ -7,11 +7,13 @@ namespace EvercraftWebsite.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _applicationDbContext;
+
         public HomeController()
         {
             DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase("TemporaryDatabase").Options;
-            var applicationDbContext = new ApplicationDbContext(options);
+            _applicationDbContext = new ApplicationDbContext(options);
         }
 
         // GET: HomeController
