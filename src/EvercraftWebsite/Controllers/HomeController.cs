@@ -65,11 +65,6 @@ namespace EvercraftWebsite.Controllers
         // }
     }
 
-    public class IndexModelView 
-    {
-        public List<DnDCharacter>? DnDCharacters { get; set; }
-    }
-
     public class EvercraftDbContext : DbContext
     {
         public EvercraftDbContext(DbContextOptions<EvercraftDbContext> options): base(options)
