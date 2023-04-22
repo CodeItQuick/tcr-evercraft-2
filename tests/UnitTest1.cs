@@ -27,4 +27,9 @@ public class Tests
     {
         Assert.Pass();
     }
+    [Test]
+    public void CommitSomeCode()
+    {
+        Assert.Pass();
+    }
 }
