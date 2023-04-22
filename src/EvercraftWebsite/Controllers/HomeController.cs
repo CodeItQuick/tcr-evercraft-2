@@ -21,7 +21,9 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController
         public ActionResult Index()
         {
-            return View();
+            var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
+
+            return View(dnDCharacters);
         }
 
         // GET: HomeController/Create
