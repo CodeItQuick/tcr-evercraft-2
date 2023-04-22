@@ -12,7 +12,7 @@ namespace EvercraftWebsite.Controllers
         }
 
         // GET: HomeController/Create
-        public ActionResult Create(int id)
+        public ActionResult Create(string characterName)
         {
             return RedirectToAction("Index");
         }
