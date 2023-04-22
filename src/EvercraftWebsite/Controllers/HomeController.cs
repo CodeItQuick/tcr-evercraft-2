@@ -14,7 +14,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Create
         public ActionResult Create()
         {
-            return RedirectToPage("Home/Index");
+            return View();
         }
 
         // POST: HomeController/Create
