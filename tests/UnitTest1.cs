@@ -38,7 +38,7 @@ public class Tests
         var response = await _client.PostAsync($"/Home/Index", new FormUrlEncodedContent(
             new List<KeyValuePair<string, string>>()
             {
-                new KeyValuePair<string, string>("characterName", "Hello World")
+                new("characterName", "Hello World")
             }));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
