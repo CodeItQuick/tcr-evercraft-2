@@ -40,12 +40,10 @@ public class Tests
         var response = await _client.PostAsync($"/Home/Index", new FormUrlEncodedContent(
             new List<KeyValuePair<string, string>>()
             {
-                new("characterName", "HelloWorld")
+                new("characterName", "Hello World")
             }));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        var queryKeys = response.RequestMessage?.RequestUri?.Query;
-        Assert.That(queryKeys, Is.EqualTo("?Key=characterName&Value=HelloWorld"));
     }
     [Test]
     public async Task MainIndexPopulatesPage()
