@@ -18,7 +18,7 @@ namespace EvercraftWebsite.Controllers
         }
 
         // POST: HomeController/Create
-        // How does this work?
+        // TODO: No idea how this works
         // [HttpPost]
         // [ValidateAntiForgeryToken]
         // public ActionResult Create(IFormCollection collection)
@@ -59,20 +59,21 @@ namespace EvercraftWebsite.Controllers
         {
             return View();
         }
-
-        // POST: HomeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //
+        // // POST: HomeController/Delete/5
+        // TODO: No idea how this works
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        // public ActionResult Delete(int id, IFormCollection collection)
+        // {
+        //     try
+        //     {
+        //         return RedirectToAction(nameof(Index));
+        //     }
+        //     catch
+        //     {
+        //         return View();
+        //     }
+        // }
     }
 }
