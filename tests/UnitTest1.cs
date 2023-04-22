@@ -15,7 +15,7 @@ public class Tests
     }
 
     [Test]
-    public async Task DummyTest()
+    public async Task HomeIndexSmokeTest()
     {
         var response = await _client.GetAsync($"/Home/Index");
 
