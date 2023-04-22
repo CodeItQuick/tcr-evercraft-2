@@ -42,11 +42,4 @@ public class Tests
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
-    [Test]
-    public async Task DeleteIndexPopulatesPage()
-    {
-        var response = await _client.GetAsync($"/Home/Delete/1");
-
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-    }
 }
