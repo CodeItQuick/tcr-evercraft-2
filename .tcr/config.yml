@@ -1,0 +1,13 @@
+config:
+    git:
+        auto-push: false
+        commit-failures: true
+        polling-period: 2s
+    mob-timer:
+        duration: 10m0s
+    tcr:
+        language: csharp
+        toolchain: dotnet
+        trace: none
+    vcs:
+        name: git
