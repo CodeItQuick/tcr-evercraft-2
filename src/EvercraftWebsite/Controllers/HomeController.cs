@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EvercraftWebsite.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EvercraftWebsite.Controllers
 {
@@ -7,6 +9,9 @@ namespace EvercraftWebsite.Controllers
     {
         public HomeController()
         {
+            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseInMemoryDatabase("TemporaryDatabase").Options;
+            var applicationDbContext = new ApplicationDbContext(options);
         }
 
         // GET: HomeController
