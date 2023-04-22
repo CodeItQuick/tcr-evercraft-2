@@ -20,4 +20,8 @@
         <PackageReference Include="JunitXml.TestLogger" Version="3.0.110" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\src\EvercraftWebsite\EvercraftWebsite.csproj" />
+    </ItemGroup>
+
 </Project>
