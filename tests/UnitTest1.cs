@@ -8,27 +8,7 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
-    {
-        Assert.Pass();
-    }
-    [Test]
-    public void TestFail()
-    {
-        Assert.Pass();
-    }
-    [Test]
-    public void TestPassesAgain()
-    {
-        Assert.Pass();
-    }
-    [Test]
-    public void TestFailsAgain()
-    {
-        Assert.Pass();
-    }
-    [Test]
-    public void CommitSomeCode()
+    public void DummyTest()
     {
         Assert.Pass();
     }
