@@ -58,7 +58,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return RedirectToAction("Index");
         }
         //
         // // POST: HomeController/Delete/5
