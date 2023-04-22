@@ -37,13 +37,16 @@ public class Tests
     [Test]
     public async Task HomeIndexPostWithCharacterNameRequestPopulatesPage()
     {
-        var response = await _client.PostAsync($"/Home/Index", new FormUrlEncodedContent(
+        var response = await _client.PostAsync($"/Home/Create", new FormUrlEncodedContent(
             new List<KeyValuePair<string, string>>()
             {
-                new("characterName", "Hello World")
+                new("characterName", "HelloWorld")
             }));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+        
+        var queryKeys = response.RequestMessage?.RequestUri?.Query;
+        Assert.That(queryKeys, Is.EqualTo("?Key=characterName&Value=HelloWorld"));
     }
     [Test]
     public async Task MainIndexPopulatesPage()
