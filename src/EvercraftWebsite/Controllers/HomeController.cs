@@ -23,8 +23,7 @@ namespace EvercraftWebsite.Controllers
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
 
-            IndexModelView indexModel = new IndexModelView() { DnDCharacters = dnDCharacters  };
-            return View(indexModel);
+            return View();
         }
 
         // GET: HomeController/Create
@@ -62,11 +61,6 @@ namespace EvercraftWebsite.Controllers
         //         return View();
         //     }
         // }
-    }
-
-    public class IndexModelView 
-    {
-        public List<DnDCharacter>? DnDCharacters { get; set; }
     }
 
     public class EvercraftDbContext : DbContext
