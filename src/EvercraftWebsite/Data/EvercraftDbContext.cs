@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace EvercraftWebsite.Controllers;
+namespace EvercraftWebsite.Data;
 
 public class EvercraftDbContext : DbContext
 {

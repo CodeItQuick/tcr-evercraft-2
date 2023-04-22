@@ -1,4 +1,5 @@
 using EvercraftWebsite.Controllers;
+using EvercraftWebsite.Data;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EvercraftWebsite.Views.Home;

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EvercraftWebsite.Controllers;
+namespace EvercraftWebsite.Data;
 
 [Table("DnDCharacter")]
 public class DnDCharacter
