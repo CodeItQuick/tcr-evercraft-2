@@ -10,9 +10,10 @@ namespace EvercraftWebsite.Controllers
     {
         private EvercraftDbContext _applicationDbContext;
 
-        public HomeController()
+        public HomeController(DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
         {
-            DbContextOptions<EvercraftDbContext> options = new DbContextOptionsBuilder<EvercraftDbContext>()
+            DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
+                new DbContextOptionsBuilder<EvercraftDbContext>()
                 .UseInMemoryDatabase("TemporaryDatabase").Options;
             _applicationDbContext = new EvercraftDbContext(options);
         }
