@@ -35,4 +35,11 @@ public class Tests
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
+    [Test]
+    public async Task EditIndexPopulatesPage()
+    {
+        var response = await _client.GetAsync($"/Home/Edit/1");
+
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+    }
 }
