@@ -24,7 +24,7 @@ public class Tests
     [Test]
     public async Task HomeIndexPostRequestPopulatesPage()
     {
-        var response = await _client.PostAsync($"/Home/Index", new FormUrlEncodedContent(
+        var response = await _client.PostAsync($"/Home/Create", new FormUrlEncodedContent(
             new List<KeyValuePair<string, string>>()
             {
                 new KeyValuePair<string, string>() {  }
