@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EvercraftWebsite;
+namespace EvercraftWebsite.Views.Home;
 
 public class HomeModel : PageModel
 {
