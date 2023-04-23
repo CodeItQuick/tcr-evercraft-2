@@ -44,6 +44,6 @@ public class HomeRepository : IHomeRepository
             dnDCharacter.CharacterName = editedName;
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
-        var saveChanges = _applicationDbContext.SaveChanges();
+        _applicationDbContext.SaveChanges();
     }
 }
