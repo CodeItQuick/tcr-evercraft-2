@@ -1,7 +1,6 @@
 using EvercraftWebsite.Controllers;
 using EvercraftWebsite.Data;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Core.Types;
 
 namespace tcr_evercraft_2_tests;
 
@@ -15,8 +14,7 @@ public class RepositoryTests
             .UseInMemoryDatabase("CanRetrieveCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            evercraftDbContext, 
-            null);
+            evercraftDbContext);
 
         var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
         
@@ -30,8 +28,7 @@ public class RepositoryTests
             .UseInMemoryDatabase("CanAddCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            evercraftDbContext, 
-            null);
+            evercraftDbContext);
 
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
@@ -45,8 +42,7 @@ public class RepositoryTests
             .UseInMemoryDatabase("CanRemoveCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            evercraftDbContext, 
-            null);
+            evercraftDbContext);
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 
@@ -63,8 +59,7 @@ public class RepositoryTests
             .UseInMemoryDatabase("CanRemoveCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            evercraftDbContext, 
-            null);
+            evercraftDbContext);
         
         homeRepository.RemoveCharacter(1);
         
@@ -79,8 +74,7 @@ public class RepositoryTests
             .UseInMemoryDatabase("Can Edit Character").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            evercraftDbContext, 
-            null);
+            evercraftDbContext);
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 
