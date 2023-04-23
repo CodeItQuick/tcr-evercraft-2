@@ -14,9 +14,10 @@ public class InterstitialControllerTests
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
+        var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
         var homeController = new HomeController(
             null, 
-            new HomeRepository(new EvercraftDbContext(dbContextOptions)),
+            homeRepository,
             null);
 
         var viewResult = homeController.Home() as ViewResult;
