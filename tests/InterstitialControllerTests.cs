@@ -13,8 +13,8 @@ public class InterstitialControllerTests
     public async Task CanRetrieveViewFromIndex()
     {
         var homeController = new HomeController(
-            null, null, new DbContextOptionsBuilder<EvercraftDbContext>()
-                .UseInMemoryDatabase("TemporaryDatabase").Options);
+            null, new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options);
 
         var viewResult = homeController.Home() as ViewResult;
         var viewResultModel = viewResult?.Model as HomeModel;
@@ -25,7 +25,7 @@ public class InterstitialControllerTests
     [Test]
     public async Task CanRetrieveNewCharacterFromIndexes()
     {
-        var homeController = new HomeController(null, null, new DbContextOptionsBuilder<EvercraftDbContext>()
+        var homeController = new HomeController(null, new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options);
 
         homeController.Create("create character test");
