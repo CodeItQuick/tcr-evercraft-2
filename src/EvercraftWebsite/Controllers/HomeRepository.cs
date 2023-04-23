@@ -19,8 +19,10 @@ public class HomeRepository : IHomeRepository
     {
         return _applicationDbContext.DnDCharacters.ToList();
     }
-    public bool CreateCharacter()
+    public bool CreateCharacter(string characterName)
     {
+        _applicationDbContext.DnDCharacters.Add(new DnDCharacter() { CharacterName = characterName ?? "Hello World" });
+        _applicationDbContext.SaveChanges();
         return true;
     }
 }

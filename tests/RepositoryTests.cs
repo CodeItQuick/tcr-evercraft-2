@@ -29,7 +29,7 @@ public class RepositoryTests
             new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options);
 
-        var createCharacter = homeRepository.CreateCharacter();
+        var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
         Assert.True(createCharacter);
         return Task.CompletedTask;
