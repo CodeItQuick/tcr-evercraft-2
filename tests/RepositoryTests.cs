@@ -37,10 +37,12 @@ public class RepositoryTests
     [Test]
     public Task RepositoryCanRemoveNewCharacter()
     {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            null, 
-            new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options);
+            evercraftDbContext, 
+            dbContextOptions);
 
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         homeRepository.RemoveCharacter(1);
