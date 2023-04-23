@@ -47,7 +47,6 @@ public class InterstitialControllerTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(evercraftDbContext);
         var homeController = new HomeController(homeRepository);
-
         homeController.Create("remove character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
