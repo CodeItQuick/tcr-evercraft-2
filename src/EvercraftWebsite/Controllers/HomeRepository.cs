@@ -35,6 +35,11 @@ public class HomeRepository : IHomeRepository
         var saveChanges = _applicationDbContext.SaveChanges();
         return saveChanges;
     }
+
+    public void Edit(int id, string newEditedName)
+    {
+        // TODO: edit the entry
+    }
 }
 
 public interface IHomeRepository
