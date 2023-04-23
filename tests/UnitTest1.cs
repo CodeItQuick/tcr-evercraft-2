@@ -101,5 +101,6 @@ public class Tests
 
         Assert.IsNotNull(viewResult);
         Assert.AreEqual(1, viewResultModel?.DnDCharacters?.Count);
+        Assert.AreEqual("first character", viewResultModel?.DnDCharacters?.Last().CharacterName);
     }
 }
