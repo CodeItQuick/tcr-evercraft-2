@@ -31,12 +31,12 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Create
         [HttpPost]
         [HttpGet]
-        public ActionResult Create(string? characterName)
+        public ActionResult Create([FromForm] string? characterName)
         {
             Console.WriteLine(characterName != null + ": Create Endpoint");
             if (characterName == null)
             {
-                return RedirectToAction("Index", new { characterName = characterName ?? "defaultCharacterName" });
+                return RedirectToAction("Index", "Home", new { characterName = characterName ?? "defaultCharacterName" });
             }
             
             _applicationDbContext.DnDCharacters.Add(new DnDCharacter() { CharacterName = characterName ?? "Hello World" });
