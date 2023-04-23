@@ -31,7 +31,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Create
         [HttpPost]
         [HttpGet]
-        public ActionResult Create(string? characterName)
+        public ActionResult Create([FromBody]  string? characterName)
         {
             Console.WriteLine(characterName != null + ": Create Endpoint");
             if (characterName == null)
