@@ -69,7 +69,7 @@ public class RepositoryTests
     }
 
     [Test]
-    public Task RepositoryCanRenameCurrentCharacter()
+    public Task RepositoryCanRenameCurrentCharacters()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Can Edit Character").Options;
@@ -82,8 +82,8 @@ public class RepositoryTests
 
         homeRepository.EditCharacter(1, "edited name");
         
-        Assert.Pass();
-        Assert.Equals(evercraftDbContext.DnDCharacters.First().CharacterName, "can create character with name");
+        Assert.Equals(evercraftDbContext.DnDCharacters.First().CharacterName, 
+            "can create character with name");
         return Task.CompletedTask;
     }
 }
