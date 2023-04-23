@@ -48,13 +48,12 @@ public class InterstitialControllerTests
         var homeController = new HomeController(homeRepository);
 
         homeController.Create("remove character test");
-        var viewResult = homeController.Home() as ViewResult;
-        var viewResultModel = viewResult?.Model as HomeModel;
-
         homeController.Delete(1);
 
+        var viewResult = homeController.Home() as ViewResult;
+        var viewResultModel = viewResult?.Model as HomeModel;
         Assert.IsNotNull(viewResult);
-        // Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
+        Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(0));
         // Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
     }
 }
