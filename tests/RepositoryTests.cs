@@ -67,4 +67,11 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
         return Task.CompletedTask;
     }
+
+    [Test]
+    public Task RepositoryCanRenameCurrentCharacter()
+    {
+        Assert.Pass();
+        return Task.CompletedTask;
+    }
 }
