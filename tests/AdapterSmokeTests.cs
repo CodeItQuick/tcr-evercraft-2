@@ -70,7 +70,7 @@ public class AdapterSmokeTests
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
-    public async Task DeleteIndexPopulatesIndexPage()
+    public async Task DeleteIndexPopulatesIndexPages()
     {
         var response = await _client.GetAsync($"/Home/Delete/1");
 
