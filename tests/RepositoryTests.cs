@@ -31,7 +31,7 @@ public class RepositoryTests
 
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
-        Assert.AreEqual(1, createCharacter);
+        Assert.That(createCharacter, Is.EqualTo(1));
         return Task.CompletedTask;
     }
 }
