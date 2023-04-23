@@ -14,7 +14,10 @@ public class RepositoryTests
             null, 
             new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options);
-        Assert.Pass();
+
+        var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
+        
+        Assert.GreaterOrEqual(retrieveDnDCharacters.Count, 0);
         return Task.CompletedTask;
     }
 }
@@ -29,5 +32,10 @@ public class HomeRepository
                                                        new DbContextOptionsBuilder<EvercraftDbContext>()
                                                            .UseInMemoryDatabase("TemporaryDatabase").Options;
         _applicationDbContext = evercraftDbContext ?? new EvercraftDbContext(options);
+    }
+
+    public List<DnDCharacter> RetrieveDnDCharacters()
+    {
+        return _applicationDbContext.DnDCharacters.ToList();
     }
 }
