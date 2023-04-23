@@ -16,6 +16,7 @@ public class InterstitialControllerTests
             .UseInMemoryDatabase("TemporaryDatabase").Options);
 
         var viewResult = homeController.Home() as ViewResult;
+        var viewResultModel = viewResult?.Model as HomeModel;
         
         Assert.IsNotNull(viewResult);
     }
