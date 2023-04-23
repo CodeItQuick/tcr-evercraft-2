@@ -27,11 +27,12 @@ public class InterstitialControllerTests
     [Test]
     public async Task CanRetrieveNewCharacterFromIndexes()
     {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options;
         var homeController = new HomeController(
             null, 
-            null,
-            new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options);
+            new HomeRepository(new EvercraftDbContext(dbContextOptions)),
+            dbContextOptions);
 
         homeController.Create("create character test");
         var viewResult = homeController.Home() as ViewResult;
