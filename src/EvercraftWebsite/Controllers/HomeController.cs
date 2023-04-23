@@ -10,7 +10,7 @@ namespace EvercraftWebsite.Controllers
     {
         private EvercraftDbContext _applicationDbContext;
 
-        public HomeController(DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
+        public HomeController(IEvercraftDbContext? evercraftDbContext, DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
         {
             DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
                 new DbContextOptionsBuilder<EvercraftDbContext>()
