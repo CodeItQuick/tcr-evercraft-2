@@ -15,8 +15,7 @@ namespace EvercraftWebsite.Controllers
             DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
                 new DbContextOptionsBuilder<EvercraftDbContext>()
                 .UseInMemoryDatabase("TemporaryDatabase").Options;
-            _applicationDbContext = evercraftDbContext;
-            _applicationDbContext = new EvercraftDbContext(options);
+            _applicationDbContext = evercraftDbContext ?? new EvercraftDbContext(options);
         }
 
         // GET: HomeController
