@@ -15,7 +15,6 @@ namespace EvercraftWebsite.Controllers
             DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
                 new DbContextOptionsBuilder<EvercraftDbContext>()
                 .UseInMemoryDatabase("TemporaryDatabase").Options;
-            Console.WriteLine(evercraftDbContext != null);
             _applicationDbContext = evercraftDbContext ?? new EvercraftDbContext(options);
         }
 
@@ -23,7 +22,6 @@ namespace EvercraftWebsite.Controllers
         public ActionResult Index()
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
-            Console.WriteLine(dnDCharacters.Count);
             var indexModel = new HomeModel() { DnDCharacters = dnDCharacters };
             return View(indexModel);
         }
@@ -33,7 +31,6 @@ namespace EvercraftWebsite.Controllers
         [HttpGet]
         public ActionResult Create([FromForm] string? characterName)
         {
-            Console.WriteLine(characterName != null + ": Create Endpoint");
             if (characterName == null)
             {
                 return RedirectToAction("Index", "Home", new { characterName = characterName ?? "defaultCharacterName" });
