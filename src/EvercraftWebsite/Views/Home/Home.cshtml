@@ -15,7 +15,6 @@
             type="submit"
             asp-controller="Home"
             asp-action="Create"
-            asp-route-charactername="asdf"
             class="btn btn-primary">
             Submit
         </button>
@@ -28,6 +27,16 @@
                     {
                         <div class="m-4">
                             @dnDCharacter.CharacterName
+                            <form method="POST" action="Delete" >
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <button
+                                        type="submit"
+                                        asp-controller="Home"
+                                        asp-action="Delete"
+                                        class="btn btn-primary">
+                                        Remove Character
+                                    </button>
+                                </form>
                         </div>
                     }
                 }
