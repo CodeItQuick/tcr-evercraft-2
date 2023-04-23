@@ -25,6 +25,10 @@ public class HomeRepository : IHomeRepository
         var saveChanges = _applicationDbContext.SaveChanges();
         return saveChanges;
     }
+    public int RemoveCharacter(int id)
+    {
+        return 1;
+    }
 }
 
 public interface IHomeRepository

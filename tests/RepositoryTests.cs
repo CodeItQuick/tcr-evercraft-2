@@ -34,4 +34,19 @@ public class RepositoryTests
         Assert.That(createCharacter, Is.EqualTo(1));
         return Task.CompletedTask;
     }
+    [Test]
+    public Task RepositoryCanRemoveNewCharacter()
+    {
+        var homeRepository = new HomeRepository(
+            null, 
+            new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options);
+
+        var createCharacter = homeRepository.CreateCharacter("can create character with name");
+        homeRepository.RemoveCharacter(1);
+        
+        
+        Assert.That(createCharacter, Is.EqualTo(1));
+        return Task.CompletedTask;
+    }
 }
