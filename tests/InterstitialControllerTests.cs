@@ -30,10 +30,11 @@ public class InterstitialControllerTests
     public async Task CanCreateNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CreateNewCharacter").Options;
+            .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
+        var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
         var homeController = new HomeController(
             null, 
-            new HomeRepository(new EvercraftDbContext(dbContextOptions)),
+            homeRepository,
             dbContextOptions);
 
         homeController.Create("create character test");
