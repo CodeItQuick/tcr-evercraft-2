@@ -92,7 +92,7 @@ public class Tests
         Assert.IsNotNull(viewResult);
     }
     [Test]
-    public async Task CanRetrieveNewCharacterFromIndexes()
+    public async Task CanRetrieveNewCharacterFromIndex()
     {
         var homeController = new HomeController(null, new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options);

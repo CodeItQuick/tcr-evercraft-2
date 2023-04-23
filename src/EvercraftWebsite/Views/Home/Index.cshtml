@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
 @model EvercraftWebsite.Views.Home.HomeModel
 
 <div class="text-center">
@@ -19,11 +20,16 @@
             Submit
         </button>
     </form>
-        <div>
+    <div class="flex">
             @{
                 if (Model != null && Model.DnDCharacters != null && Model.DnDCharacters.Any())
                 {
-                    @Model.DnDCharacters.First().CharacterName.ToString()
+                    foreach (var dnDCharacter in Model.DnDCharacters)
+                    {
+                        <div>
+                            @dnDCharacter.CharacterName
+                        </div>
+                    }
                 }
             }
         </div>
