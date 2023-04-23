@@ -40,7 +40,7 @@ namespace EvercraftWebsite.Controllers
         {
             if (characterName == null)
             {
-                return RedirectToAction("Home", "Home", new { characterName = characterName ?? "defaultCharacterName" });
+                return RedirectToAction("Home", "Home");
             }
 
             _homeRepository.CreateCharacter(characterName);
