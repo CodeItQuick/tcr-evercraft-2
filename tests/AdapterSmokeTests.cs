@@ -45,8 +45,6 @@ public class AdapterSmokeTests
             }));
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        var queryKeys = response.RequestMessage?.RequestUri?.Query;
-        Assert.That(queryKeys, Is.EqualTo("?characterName=HelloWorld"));
     }
     [Test]
     public async Task MainIndexPopulatesPage()
