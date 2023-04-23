@@ -41,6 +41,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Delete/5
         public ActionResult Delete(int id)
         {
+            _homeRepository.RemoveCharacter(id);
             return RedirectToAction("Home");
         }
         
