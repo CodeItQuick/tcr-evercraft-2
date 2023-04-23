@@ -35,4 +35,9 @@ public class HomeRepository : IHomeRepository
         var saveChanges = _applicationDbContext.SaveChanges();
         return saveChanges;
     }
+
+    public void EditCharacter(int id, string editedName)
+    {
+        // TODO: side effects for edit operation
+    }
 }
