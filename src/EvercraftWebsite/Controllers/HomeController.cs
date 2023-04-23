@@ -46,7 +46,7 @@ namespace EvercraftWebsite.Controllers
         }
         
         // GET: HomeController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string editedCharacterName)
         {
             return RedirectToAction("Home");
         }
