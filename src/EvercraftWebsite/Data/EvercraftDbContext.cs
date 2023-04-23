@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EvercraftWebsite.Data;
 
-public class EvercraftDbContext : DbContext
+public class EvercraftDbContext : DbContext, IEvercraftDbContext
 {
     public EvercraftDbContext(DbContextOptions<EvercraftDbContext> options): base(options)
     {
@@ -10,4 +10,9 @@ public class EvercraftDbContext : DbContext
     }
         
     public virtual DbSet<DnDCharacter> DnDCharacters { get; set; }
+}
+
+public interface IEvercraftDbContext
+{
+    public DbSet<DnDCharacter> DnDCharacters { get; set; }
 }
