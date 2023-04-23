@@ -54,6 +54,7 @@ public class InterstitialControllerTests
         homeController.Delete(1);
 
         Assert.IsNotNull(viewResult);
-        Assert.Zero(homeRepository.RetrieveDnDCharacters().Count);
+        Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
     }
 }
