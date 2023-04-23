@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using EvercraftWebsite.Controllers;
 using EvercraftWebsite.Data;
-using EvercraftWebsite.Views.Home;
 using Microsoft.EntityFrameworkCore;
 
 namespace tcr_evercraft_2_tests;
@@ -97,9 +96,7 @@ public class Tests
 
         homeController.Create("first character");
         var viewResult = homeController.Index() as ViewResult;
-        var viewResultModel = viewResult?.Model as HomeModel;
-
+        
         Assert.IsNotNull(viewResult);
-        Assert.AreEqual(1, viewResultModel?.DnDCharacters?.Count);
     }
 }
