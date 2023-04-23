@@ -44,7 +44,8 @@ public class InterstitialControllerTests
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Remove New Character Interstitial").Options;
-        var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(evercraftDbContext);
         var homeController = new HomeController(homeRepository);
 
         homeController.Create("remove character test");
@@ -53,7 +54,7 @@ public class InterstitialControllerTests
         var viewResult = homeController.Home() as ViewResult;
         var viewResultModel = viewResult?.Model as HomeModel;
         Assert.IsNotNull(viewResult);
-        Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(0));
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
         // Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
     }
 }
