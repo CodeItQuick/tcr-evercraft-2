@@ -11,6 +11,9 @@ public class RepositoryTests
     [Test]
     public Task RepositoryCanRetrieveListOfCharacter()
     {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanAddCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             null, 
             new DbContextOptionsBuilder<EvercraftDbContext>()
