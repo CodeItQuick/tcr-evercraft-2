@@ -22,8 +22,8 @@ namespace EvercraftWebsite.Controllers
         public ActionResult Index()
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
-
-            HomeModel indexModel = new HomeModel() { DnDCharacters = dnDCharacters };
+            Console.WriteLine(dnDCharacters.Count);
+            var indexModel = new HomeModel() { DnDCharacters = dnDCharacters };
             return View(indexModel);
         }
 

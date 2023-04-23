@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EvercraftWebsite.Views.Home;
 
-public class HomeModel : PageModel
+public class HomeModel
 {
     private readonly ILogger<HomeModel> _logger;
-    public List<DnDCharacter>? DnDCharacters { get; set; }
+    public List<DnDCharacter>? DnDCharacters { get; set; } = new();
 
 
     public HomeModel()
