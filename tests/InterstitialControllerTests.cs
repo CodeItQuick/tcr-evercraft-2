@@ -27,10 +27,10 @@ public class InterstitialControllerTests
         Assert.GreaterOrEqual(viewResultModel?.DnDCharacters?.Count, 0);
     }
     [Test]
-    public async Task CanRetrieveNewCharacterFromIndex()
+    public async Task CanCreateNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options;
+            .UseInMemoryDatabase("CreateNewCharacter").Options;
         var homeController = new HomeController(
             null, 
             new HomeRepository(new EvercraftDbContext(dbContextOptions)),
