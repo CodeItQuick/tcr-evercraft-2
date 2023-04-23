@@ -1,3 +1,4 @@
+using EvercraftWebsite.Controllers;
 using EvercraftWebsite.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<EvercraftDbContext>(options =>
     options.UseInMemoryDatabase("Temporary Database"));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddTransient<IHomeRepository, HomeRepository>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
