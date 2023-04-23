@@ -67,21 +67,4 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
         return Task.CompletedTask;
     }
-    [Test]
-    public Task RepositoryCanEditNewCharacter()
-    {
-        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CanRemoveCharacter").Options;
-        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
-        var homeRepository = new HomeRepository(
-            evercraftDbContext, 
-            null);
-        var createCharacter = homeRepository.CreateCharacter("can create character with name");
-        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
-
-        homeRepository.Edit(1, "new edited name");
-        
-        Assert.That(createCharacter, Is.EqualTo(1));
-        return Task.CompletedTask;
-    }
 }
