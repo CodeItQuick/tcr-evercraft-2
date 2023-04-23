@@ -30,7 +30,7 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            var entityEntry = _applicationDbContext.DnDCharacters.Remove(dnDCharacter);
+            _applicationDbContext.DnDCharacters.Remove(dnDCharacter);
         }
         var saveChanges = _applicationDbContext.SaveChanges();
         return saveChanges;
