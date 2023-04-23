@@ -12,7 +12,8 @@ public class InterstitialControllerTests
     [Test]
     public async Task CanRetrieveViewFromIndex()
     {
-        var homeController = new HomeController(null, new DbContextOptionsBuilder<EvercraftDbContext>()
+        var homeController = new HomeController(
+            null, new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options);
 
         var viewResult = homeController.Home() as ViewResult;
