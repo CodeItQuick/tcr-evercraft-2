@@ -38,6 +38,12 @@ public class HomeRepository : IHomeRepository
 
     public void EditCharacter(int id, string editedName)
     {
-        // TODO: side effects for edit operation
+        var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
+        if (dnDCharacter != null)
+        {
+            dnDCharacter.CharacterName = editedName;
+            _applicationDbContext.DnDCharacters.Update(dnDCharacter);
+        }
+        var saveChanges = _applicationDbContext.SaveChanges();
     }
 }
