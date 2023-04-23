@@ -31,6 +31,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Create
         public ActionResult Create(string? characterName)
         {
+            Console.WriteLine(characterName);
             if (characterName == null)
             {
                 return RedirectToAction("Index", new { characterName = characterName ?? "defaultCharacterName" });
