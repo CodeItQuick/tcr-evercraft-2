@@ -42,9 +42,8 @@ namespace EvercraftWebsite.Controllers
             {
                 return RedirectToAction("Home", "Home", new { characterName = characterName ?? "defaultCharacterName" });
             }
-            
-            _applicationDbContext.DnDCharacters.Add(new DnDCharacter() { CharacterName = characterName ?? "Hello World" });
-            _applicationDbContext.SaveChanges();
+
+            _homeRepository.CreateCharacter(characterName);
 
             return RedirectToAction("Home", "Home");
         }
