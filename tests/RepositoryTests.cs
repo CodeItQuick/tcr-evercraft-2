@@ -38,7 +38,7 @@ public class RepositoryTests
     public Task RepositoryCanRemoveNewCharacter()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options;
+            .UseInMemoryDatabase("CanRemoveCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext, 
@@ -49,6 +49,7 @@ public class RepositoryTests
         
         
         Assert.That(createCharacter, Is.EqualTo(1));
+        Assert.AreEqual(0, evercraftDbContext.DnDCharacters.Count());
         return Task.CompletedTask;
     }
 }
