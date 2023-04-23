@@ -82,8 +82,9 @@ public class Tests
     [Test]
     public async Task CanRetrieveViewFromIndex()
     {
-        var homeController = new HomeController(new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options);
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options;
+        var homeController = new HomeController(new EvercraftDbContext(dbContextOptions));
 
         var viewResult = homeController.Index() as ViewResult;
         
@@ -92,8 +93,9 @@ public class Tests
     [Test]
     public async Task CanRetrieveNewCharacterFromIndex()
     {
-        var homeController = new HomeController(new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options);
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options;
+        var homeController = new HomeController(new EvercraftDbContext(dbContextOptions));
 
         homeController.Create("create character test");
         var viewResult = homeController.Index() as ViewResult;
