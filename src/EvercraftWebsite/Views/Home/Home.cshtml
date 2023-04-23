@@ -28,15 +28,29 @@
                         <div class="m-4">
                             @dnDCharacter.CharacterName
                             <form method="POST" action="Delete" >
+                                <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="Delete"
+                                    class="btn btn-primary">
+                                    Remove Character
+                                </button>
+                            </form>
+                            <form method="POST" action="Edit">
+                                <div class="mb-3">
                                     <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
-                                    <button
-                                        type="submit"
-                                        asp-controller="Home"
-                                        asp-action="Delete"
-                                        class="btn btn-primary">
-                                        Remove Character
-                                    </button>
-                                </form>
+                                    <label for="editedCharacterName" class="form-label">Character Name</label>
+                                    <input type="text" class="form-control" id="editedCharacterName" name="editedCharacterName" value="" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="Edit"
+                                    class="btn btn-primary">
+                                    Edit Name
+                                </button>
+                            </form>
                         </div>
                     }
                 }
