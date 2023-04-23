@@ -83,6 +83,7 @@ public class RepositoryTests
         homeRepository.EditCharacter(1, "edited name");
         
         Assert.Pass();
+        Assert.Equals(evercraftDbContext.DnDCharacters.First().CharacterName, "can create character with name");
         return Task.CompletedTask;
     }
 }
