@@ -27,7 +27,7 @@ public class InterstitialControllerTests
         Assert.GreaterOrEqual(viewResultModel?.DnDCharacters?.Count, 0);
     }
     [Test]
-    public async Task CanRetrieveNewCharacterFromIndexes()
+    public async Task CanRetrieveNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options;
