@@ -7,7 +7,7 @@ using EvercraftWebsite.Views.Home;
 using Microsoft.EntityFrameworkCore;
 namespace tcr_evercraft_2_tests;
 
-public class Tests
+public class AdapterSmokeTests
 {
     private HttpClient _client;
     [SetUp]
