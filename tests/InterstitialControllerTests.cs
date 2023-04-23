@@ -19,7 +19,7 @@ public class InterstitialControllerTests
         var viewResultModel = viewResult?.Model as HomeModel;
         
         Assert.IsNotNull(viewResult);
-        Assert.GreaterOrEqual(viewResultModel.DnDCharacters.Count, 0);
+        Assert.GreaterOrEqual(viewResultModel?.DnDCharacters?.Count, 0);
     }
     [Test]
     public async Task CanRetrieveNewCharacterFromIndexes()
