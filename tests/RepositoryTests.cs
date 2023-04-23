@@ -48,7 +48,6 @@ public class RepositoryTests
 
         homeRepository.RemoveCharacter(1);
         
-        
         Assert.That(createCharacter, Is.EqualTo(1));
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
         return Task.CompletedTask;
