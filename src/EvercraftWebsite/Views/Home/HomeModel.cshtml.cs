@@ -6,7 +6,7 @@ namespace EvercraftWebsite.Views.Home;
 
 public class HomeModel : PageModel
 {
-    private readonly ILogger<HomeModel> _logger;
+    private readonly ILogger<HomeModel>? _logger;
     public List<DnDCharacter>? DnDCharacters { get; set; }
 
 
@@ -14,7 +14,7 @@ public class HomeModel : PageModel
     {
     }
 
-    public HomeModel(ILogger<HomeModel> logger)
+    public HomeModel(ILogger<HomeModel>? logger)
     {
         _logger = logger;
     }
