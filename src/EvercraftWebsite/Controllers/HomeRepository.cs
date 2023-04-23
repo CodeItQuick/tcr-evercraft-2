@@ -19,6 +19,10 @@ public class HomeRepository : IHomeRepository
     {
         return _applicationDbContext.DnDCharacters.ToList();
     }
+    public bool CreateCharacter()
+    {
+        return true;
+    }
 }
 
 public interface IHomeRepository

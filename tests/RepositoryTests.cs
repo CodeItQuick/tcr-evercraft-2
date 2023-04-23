@@ -21,4 +21,17 @@ public class RepositoryTests
         Assert.GreaterOrEqual(retrieveDnDCharacters.Count, 0);
         return Task.CompletedTask;
     }
+    [Test]
+    public Task RepositoryCanCreateNewCharacter()
+    {
+        var homeRepository = new HomeRepository(
+            null, 
+            new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("TemporaryDatabase").Options);
+
+        var createCharacter = homeRepository.CreateCharacter();
+        
+        Assert.True(createCharacter);
+        return Task.CompletedTask;
+    }
 }
