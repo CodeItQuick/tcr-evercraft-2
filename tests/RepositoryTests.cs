@@ -29,8 +29,7 @@ public class RepositoryTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext, 
-            new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CanAddCharacter").Options);
+            null);
 
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
