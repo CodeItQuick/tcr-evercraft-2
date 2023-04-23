@@ -71,6 +71,13 @@ public class RepositoryTests
     [Test]
     public Task RepositoryCanRenameCurrentCharacter()
     {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("Can Edit Character").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext, 
+            null);
+        
         Assert.Pass();
         return Task.CompletedTask;
     }
