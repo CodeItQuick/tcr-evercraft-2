@@ -16,8 +16,7 @@ public class RepositoryTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext, 
-            new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CanRetrieveCharacter").Options);
+            null);
 
         var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
         
