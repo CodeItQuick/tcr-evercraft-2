@@ -40,7 +40,7 @@ public class InterstitialControllerTests
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
     }
     [Test]
-    public async Task CanRemoveNewCharacterFromIndexes()
+    public async Task CanRemoveNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Remove New Character Interstitial").Options;
@@ -54,7 +54,6 @@ public class InterstitialControllerTests
         homeController.Delete(1);
 
         Assert.IsNotNull(viewResult);
-        Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
-        Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
+        Assert.Zero(homeRepository.RetrieveDnDCharacters().Count);
     }
 }
