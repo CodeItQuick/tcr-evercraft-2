@@ -20,7 +20,7 @@ public class Tests
     [Test]
     public async Task HomeIndexPopulatesPage()
     {
-        var response = await _client.GetAsync($"/Home/Index");
+        var response = await _client.GetAsync($"/Home/Home");
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
@@ -86,7 +86,7 @@ public class Tests
         var homeController = new HomeController(null, new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("TemporaryDatabase").Options);
 
-        var viewResult = homeController.Index() as ViewResult;
+        var viewResult = homeController.Home() as ViewResult;
         
         Assert.IsNotNull(viewResult);
     }
@@ -97,7 +97,7 @@ public class Tests
             .UseInMemoryDatabase("TemporaryDatabase").Options);
 
         homeController.Create("create character test");
-        var viewResult = homeController.Index() as ViewResult;
+        var viewResult = homeController.Home() as ViewResult;
         var viewResultModel = viewResult?.Model as HomeModel;
 
         Assert.IsNotNull(viewResult);

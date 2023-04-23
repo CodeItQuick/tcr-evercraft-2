@@ -19,7 +19,7 @@ namespace EvercraftWebsite.Controllers
         }
 
         // GET: HomeController
-        public ActionResult Index()
+        public ActionResult Home()
         {
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
             var indexModel = new HomeModel() { DnDCharacters = dnDCharacters };
@@ -33,25 +33,25 @@ namespace EvercraftWebsite.Controllers
         {
             if (characterName == null)
             {
-                return RedirectToAction("Index", "Home", new { characterName = characterName ?? "defaultCharacterName" });
+                return RedirectToAction("Home", "Home", new { characterName = characterName ?? "defaultCharacterName" });
             }
             
             _applicationDbContext.DnDCharacters.Add(new DnDCharacter() { CharacterName = characterName ?? "Hello World" });
             _applicationDbContext.SaveChanges();
 
-            return RedirectToAction("Index", "Home", new { characterName });
+            return RedirectToAction("Home", "Home", new { characterName });
         }
 
         // GET: HomeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
 
         // GET: HomeController/Delete/5
         public ActionResult Delete(int id)
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Home");
         }
         //
         // // POST: HomeController/Delete/5
