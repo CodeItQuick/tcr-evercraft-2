@@ -14,7 +14,7 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             null, 
             new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options);
+            .UseInMemoryDatabase("CanRetrieveCharacter").Options);
 
         var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
         
@@ -27,7 +27,7 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             null, 
             new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("TemporaryDatabase").Options);
+            .UseInMemoryDatabase("CanAddCharacter").Options);
 
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
