@@ -22,13 +22,13 @@ public class RepositoryTests
         return Task.CompletedTask;
     }
     [Test]
-    public Task RepositoryCanCreateNewCharacter()
+    public Task RepositoryCanCreateNewCharacters()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanAddCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
-            null, 
+            evercraftDbContext, 
             new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanAddCharacter").Options);
 
