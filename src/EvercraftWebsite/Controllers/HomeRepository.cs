@@ -30,4 +30,5 @@ public class HomeRepository : IHomeRepository
 public interface IHomeRepository
 {
     public List<DnDCharacter> RetrieveDnDCharacters();
+    public int CreateCharacter(string characterName);
 }
