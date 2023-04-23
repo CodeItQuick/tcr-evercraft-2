@@ -32,7 +32,7 @@ public class InterstitialControllerTests
         var viewResultModel = viewResult?.Model as HomeModel;
 
         Assert.IsNotNull(viewResult);
-        Assert.AreEqual(1, viewResultModel?.DnDCharacters?.Count);
-        Assert.AreEqual("create character test", viewResultModel?.DnDCharacters?.Last().CharacterName);
+        Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
     }
 }
