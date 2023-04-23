@@ -42,7 +42,7 @@ public class RepositoryTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext, 
-            dbContextOptions);
+            null);
 
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         homeRepository.RemoveCharacter(1);
