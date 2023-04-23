@@ -23,7 +23,10 @@ public class RepositoryTests
     }
     [Test]
     public Task RepositoryCanCreateNewCharacter()
-    {
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanRemoveCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             null, 
             new DbContextOptionsBuilder<EvercraftDbContext>()
