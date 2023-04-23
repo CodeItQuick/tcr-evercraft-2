@@ -20,13 +20,13 @@
             Submit
         </button>
     </form>
-    <div class="flex">
+    <div class="d-flex flex-row">
             @{
-                if (Model != null && Model.DnDCharacters != null && Model.DnDCharacters.Any())
+                if ((bool) Model?.DnDCharacters?.Any())
                 {
-                    foreach (var dnDCharacter in Model.DnDCharacters)
+                    foreach (var dnDCharacter in Model?.DnDCharacters)
                     {
-                        <div>
+                        <div class="m-4">
                             @dnDCharacter.CharacterName
                         </div>
                     }
