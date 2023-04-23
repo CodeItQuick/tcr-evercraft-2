@@ -27,7 +27,7 @@ public class InterstitialControllerTests
     public async Task CanCreateNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
+            .UseInMemoryDatabase("Create New Character Interstitial").Options;
         var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
         var homeController = new HomeController(homeRepository);
 
