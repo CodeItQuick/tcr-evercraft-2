@@ -39,7 +39,7 @@ public class Tests
         Assert.That(queryKeys, Is.EqualTo("?characterName=defaultCharacterName"));
     }
     [Test]
-    public async Task HomeIndexPostWithCharacterNameRequestPopulatesPages()
+    public async Task HomeIndexPostWithCharacterNameRequestPopulatesPage()
     {
         var response = await _client.PostAsync($"/Home/Create", new FormUrlEncodedContent(
             new List<KeyValuePair<string, string>>()
