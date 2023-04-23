@@ -61,7 +61,9 @@ public class Tests
     [Test]
     public async Task CreateIndexPopulatesIndexPage()
     {
-        var response = await _client.GetAsync($"/Home/Create/1");
+        var response = await _client.PostAsync($"/Home/Create", 
+            new FormUrlEncodedContent(new []{ new KeyValuePair<string, string>() })
+            );
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
