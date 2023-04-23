@@ -48,17 +48,18 @@ namespace EvercraftWebsite.Controllers
             return RedirectToAction("Home", "Home");
         }
 
+        // GET: HomeController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return RedirectToAction("Home");
+        }
+        
         // GET: HomeController/Edit/5
         public ActionResult Edit(int id)
         {
             return RedirectToAction("Home");
         }
 
-        // GET: HomeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return RedirectToAction("Home");
-        }
         //
         // // POST: HomeController/Delete/5
         // TODO: No idea how this works
