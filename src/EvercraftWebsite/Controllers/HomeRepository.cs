@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EvercraftWebsite.Controllers;
 
-public class HomeRepository
+public class HomeRepository : IHomeRepository
 {
     private readonly EvercraftDbContext _applicationDbContext;
 
@@ -19,4 +19,9 @@ public class HomeRepository
     {
         return _applicationDbContext.DnDCharacters.ToList();
     }
+}
+
+public interface IHomeRepository
+{
+    public List<DnDCharacter> RetrieveDnDCharacters();
 }
