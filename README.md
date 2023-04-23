@@ -29,13 +29,13 @@ the manner the tests are written so that they always pass, etc.
 
 
 # Requirements Complete:
-* [] Core (First Iteration)
+* [ ] Core (First Iteration)
 * [x] Create Character - Character has name, can edit name, can add/remove
-* [] Alignment
-* [] Armor & Hitpoints
-* [] Character Can Attack
-* [] Character Can Be Damaged
-* [] Character Has Ability Scores
-* [] Character Has Ability Modifiers
-* [] Character Can Gain Experience
-* [] Character Can Level
+* [ ] Alignment
+* [ ] Armor & Hitpoints
+* [ ] Character Can Attack
+* [ ] Character Can Be Damaged
+* [ ] Character Has Ability Scores
+* [ ] Character Has Ability Modifiers
+* [ ] Character Can Gain Experience
+* [ ] Character Can Level
