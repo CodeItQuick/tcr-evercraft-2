@@ -38,7 +38,7 @@ namespace EvercraftWebsite.Controllers
             _applicationDbContext.DnDCharacters.Add(new DnDCharacter() { CharacterName = characterName ?? "Hello World" });
             _applicationDbContext.SaveChanges();
 
-            return RedirectToAction("Index", new  { characterName = characterName ?? "defaultCharacterName" });
+            return RedirectToAction("Index", new  { characterName = characterName });
         }
 
         // GET: HomeController/Edit/5
