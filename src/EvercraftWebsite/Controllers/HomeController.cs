@@ -15,6 +15,7 @@ namespace EvercraftWebsite.Controllers
             DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
                 new DbContextOptionsBuilder<EvercraftDbContext>()
                 .UseInMemoryDatabase("TemporaryDatabase").Options;
+            Console.WriteLine(evercraftDbContext != null);
             _applicationDbContext = evercraftDbContext ?? new EvercraftDbContext(options);
         }
 
