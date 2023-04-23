@@ -15,10 +15,7 @@ public class InterstitialControllerTests
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
         var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
-        var homeController = new HomeController(
-            null, 
-            homeRepository,
-            null);
+        var homeController = new HomeController(homeRepository);
 
         var viewResult = homeController.Home() as ViewResult;
         var viewResultModel = viewResult?.Model as HomeModel;
@@ -27,15 +24,12 @@ public class InterstitialControllerTests
         Assert.GreaterOrEqual(viewResultModel?.DnDCharacters?.Count, 0);
     }
     [Test]
-    public async Task CanCreateNewCharacterFromIndex()
+    public async Task CanCreateNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
         var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
-        var homeController = new HomeController(
-            null, 
-            homeRepository,
-            dbContextOptions);
+        var homeController = new HomeController(homeRepository);
 
         homeController.Create("create character test");
         var viewResult = homeController.Home() as ViewResult;

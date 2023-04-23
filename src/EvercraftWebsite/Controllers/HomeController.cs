@@ -1,8 +1,6 @@
-﻿using EvercraftWebsite.Data;
-using EvercraftWebsite.Views.Home;
+﻿using EvercraftWebsite.Views.Home;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EvercraftWebsite.Controllers
 {
@@ -10,10 +8,7 @@ namespace EvercraftWebsite.Controllers
     {
         private readonly IHomeRepository _homeRepository;
 
-        public HomeController(
-            EvercraftDbContext? evercraftDbContext, 
-            IHomeRepository homeRepository,
-            DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
+        public HomeController(IHomeRepository homeRepository)
         {
             _homeRepository = homeRepository;
         }
