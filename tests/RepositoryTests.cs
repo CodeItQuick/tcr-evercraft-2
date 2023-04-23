@@ -52,4 +52,19 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
         return Task.CompletedTask;
     }
+    [Test]
+    public Task RepositoryCannotRemoveNonPresentCharacter()
+    {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanRemoveCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext, 
+            null);
+        
+        homeRepository.RemoveCharacter(1);
+        
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
+        return Task.CompletedTask;
+    }
 }
