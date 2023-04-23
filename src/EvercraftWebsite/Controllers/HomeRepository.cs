@@ -27,6 +27,8 @@ public class HomeRepository : IHomeRepository
     }
     public int RemoveCharacter(int id)
     {
+        var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
+        var entityEntry = _applicationDbContext.Remove(dnDCharacter);
         return 1;
     }
 }
