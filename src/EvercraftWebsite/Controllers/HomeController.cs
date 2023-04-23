@@ -28,7 +28,7 @@ namespace EvercraftWebsite.Controllers
         [HttpPost]
         public ActionResult Home()
         {
-            var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
+            var dnDCharacters = _homeRepository.RetrieveDnDCharacters();
             var indexModel = new HomeModel() { DnDCharacters = dnDCharacters };
             return View(indexModel);
         }
