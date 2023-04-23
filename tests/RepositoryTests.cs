@@ -49,7 +49,7 @@ public class RepositoryTests
         
         
         Assert.That(createCharacter, Is.EqualTo(1));
-        Assert.AreEqual(0, evercraftDbContext.DnDCharacters.Count());
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
         return Task.CompletedTask;
     }
 }
