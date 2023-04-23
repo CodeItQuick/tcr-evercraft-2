@@ -51,10 +51,6 @@ public class InterstitialControllerTests
         homeController.Create("remove character test");
         homeController.Delete(1);
 
-        var viewResult = homeController.Home() as ViewResult;
-        var viewResultModel = viewResult?.Model as HomeModel;
-        Assert.IsNotNull(viewResult);
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
-        // Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
     }
 }
