@@ -66,5 +66,7 @@ public class InterstitialControllerTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
         homeController.Edit(1, "edited name");
+
+        Assert.Equals("edited name", evercraftDbContext.DnDCharacters.First().CharacterName);
     }
 }
