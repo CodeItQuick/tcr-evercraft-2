@@ -9,7 +9,6 @@ namespace EvercraftWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly IHomeRepository _homeRepository;
-        private EvercraftDbContext _applicationDbContext;
 
         public HomeController(
             EvercraftDbContext? evercraftDbContext, 
@@ -17,10 +16,6 @@ namespace EvercraftWebsite.Controllers
             DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
         {
             _homeRepository = homeRepository;
-            DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
-                                                           new DbContextOptionsBuilder<EvercraftDbContext>()
-                                                               .UseInMemoryDatabase("TemporaryDatabase").Options;
-            _applicationDbContext = evercraftDbContext ?? new EvercraftDbContext(options);
         }
 
         // GET: HomeController
