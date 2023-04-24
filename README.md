@@ -9,7 +9,7 @@ TCR is test-commit-revert originally coined by Kent Beck. Basically, the tests a
 if the tests fail a git revert is run to wipe the work done since the last commit. If the tests pass then
 the current work in progress is committed.
 
-# What is Evarcraft
+# What is Evercraft
 See the Evercraft.md file for more information on the details
 
 # Advantages/Disadvantages of TCR
