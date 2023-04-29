@@ -10,24 +10,13 @@ namespace tcr_evercraft_2_tests;
 
 public class AdapterSmokeTests
 {
-    private HttpClient _client;
     private static TestingWebAppFactory _application = new();
 
-    public static HttpClient NewClient =>
+    public static HttpClient _client =>
         _application.CreateClient(new WebApplicationFactoryClientOptions()
         {
             AllowAutoRedirect = false
         });
-
-    [SetUp]
-    public void SetUp()
-    {
-        var testingWebAppFactory = new TestingWebAppFactory();
-        _client = testingWebAppFactory.CreateClient(new WebApplicationFactoryClientOptions()
-        {
-            AllowAutoRedirect = false
-        });
-    }
 
     [Test]
     public async Task HomeIndexPopulatesPage()
