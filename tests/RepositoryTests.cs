@@ -28,7 +28,7 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
 
-        var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
+        var retrieveDnDCharacters = _homeRepository.RetrieveDnDCharacters();
         
         Assert.GreaterOrEqual(retrieveDnDCharacters.Count, 0);
     }
