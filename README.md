@@ -36,12 +36,9 @@ the manner the tests are written so that they always pass, etc.
 # Requirements Complete:
 * [ ] Core (First Iteration)
 * [x] Create Character - Character has name, can edit name, can add/remove
-* [ ] Create Mob
 * [ ] Alignment
 * [x] Armor & HitPoints
-* [ ] Mob has Armor & Hitpoints
-* [ ] Character Can Attack
-* [x] Mob Can Attack
+* [x] Character Can Attack
 * [ ] Character Can Be Damaged
 * [ ] Character Has Ability Scores
 * [ ] Character Has Ability Modifiers
