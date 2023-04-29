@@ -1,8 +1,10 @@
 using EvercraftWebsite.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace EvercraftWebsite.Controllers;
 
+[Authorize]
 public class HomeRepository : IHomeRepository
 {
     private readonly EvercraftDbContext _applicationDbContext;
