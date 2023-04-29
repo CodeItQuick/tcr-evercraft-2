@@ -7,11 +7,12 @@ namespace EvercraftWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly IHomeRepository _homeRepository;
-        private Random _random = new Random();
+        private readonly Random _random;
 
         public HomeController(IHomeRepository homeRepository)
         {
             _homeRepository = homeRepository;
+            _random = new();
         }
 
         // GET: HomeController
