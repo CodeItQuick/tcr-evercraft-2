@@ -84,6 +84,8 @@ public class InterstitialControllerTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 
         homeController.CharacterAttacked(1);
+        
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
 
     }
 }
