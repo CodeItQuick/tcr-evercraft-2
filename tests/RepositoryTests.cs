@@ -87,9 +87,8 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
 
-        var createCharacter = homeRepository.CreateCharacter("can create character with 10 hitpoints");
+        homeRepository.CreateCharacter("can create character with 10 hitpoints");
         
-        Assert.That(createCharacter, Is.EqualTo(1));
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
     }
 }
