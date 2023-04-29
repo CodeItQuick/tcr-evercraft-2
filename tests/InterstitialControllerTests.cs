@@ -42,7 +42,7 @@ public class InterstitialControllerTests
         return Task.CompletedTask;
     }
     [Test]
-    public Task CanRemoveNewCharacterFromIndexes()
+    public void CanRemoveNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Remove New Character Interstitial").Options;
@@ -55,7 +55,6 @@ public class InterstitialControllerTests
         homeController.Delete(1);
 
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
-        return Task.CompletedTask;
     }
     [Test]
     public void CanEditNewCharacterFromIndex()
