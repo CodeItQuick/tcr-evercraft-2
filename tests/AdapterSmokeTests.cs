@@ -108,6 +108,17 @@ public class AdapterSmokeTests
 
         response.EnsureSuccessStatusCode();
         var stringResponse = await response.Content.ReadAsStringAsync();
+        
+        StringAssert.Contains("Evercraft", stringResponse);
+    }
+    [Test]
+    public async Task MainCharacterPagePopulates()
+    {
+        var response = await _client.GetAsync("/Home/Home");
+
+        response.EnsureSuccessStatusCode();
+        var stringResponse = await response.Content.ReadAsStringAsync();
+        
         StringAssert.Contains("Evercraft", stringResponse);
     }
 }
