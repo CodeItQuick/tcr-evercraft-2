@@ -13,7 +13,7 @@ public class AdapterSmokeTests
     [SetUp]
     public void SetUp()
     {
-        var testingWebAppFactory = new TestingWebAppFactory<Program>();
+        var testingWebAppFactory = new TestingWebAppFactory();
         _client = testingWebAppFactory.CreateClient();
     }
 

@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace tcr_evercraft_2_tests
 {
-    public class TestingWebAppFactory<T> : WebApplicationFactory<Program>
+    public class TestingWebAppFactory : WebApplicationFactory<Program>
     {
         private readonly string _environment = "Development";
         protected override IHost CreateHost(IHostBuilder builder)
