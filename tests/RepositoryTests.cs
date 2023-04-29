@@ -43,13 +43,18 @@ public class RepositoryTests
     [Test]
     public void RepositoryCanRemoveNewCharacter()
     {
-        var createCharacter = _homeRepository.CreateCharacter("can remove character with name");
-        Assert.That(_evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanRemoveCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        var createCharacter = homeRepository.CreateCharacter("can remove character with name");
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 
-        _homeRepository.RemoveCharacter(1);
+        homeRepository.RemoveCharacter(1);
         
         Assert.That(createCharacter, Is.EqualTo(1));
-        Assert.That(_evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
     }
     [Test]
     public void RepositoryCannotRemoveNonPresentCharacter()
