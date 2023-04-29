@@ -25,14 +25,10 @@ namespace tcr_evercraft_2_tests
                     services.Remove(descriptor);
                 }
 
-                services.AddScoped(sp =>
-                {
-                    // Replace SQLite with in-memory database for tests
-                    return new DbContextOptionsBuilder<EvercraftDbContext>()
-                        .UseInMemoryDatabase("InMemoryDbForTesting")
-                        .UseApplicationServiceProvider(sp)
-                        .Options;
-                });
+                services.AddScoped(sp => new DbContextOptionsBuilder<EvercraftDbContext>()
+                    .UseInMemoryDatabase("InMemoryDbForTesting")
+                    .UseApplicationServiceProvider(sp)
+                    .Options);
             });
             return base.CreateHost(builder);
         }
@@ -40,20 +36,7 @@ namespace tcr_evercraft_2_tests
         {
             builder.ConfigureServices(services =>
             {
-                // database
-                // var dbContext = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<AppDbContext>));
-
-                // if (dbContext != null)
-                //     services.Remove(dbContext);
-
-                // var serviceProvider = new ServiceCollection().AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
-                //
-                // services.AddDbContext<AppDbContext>(options =>
-                // {
-                //     options.UseInMemoryDatabase("InMemoryEmployeeTest");
-                //     options.UseInternalServiceProvider(serviceProvider);
-                // });
-
+                
                 // antiforgery
                 services.AddAntiforgery(t =>
                 {
@@ -64,21 +47,6 @@ namespace tcr_evercraft_2_tests
                 var sp = services.BuildServiceProvider();
                 sp.CreateScope();
 
-                // using (var scope = sp.CreateScope())
-                // {
-                //     using (var appContext = scope.ServiceProvider.GetRequiredService<AppDbContext>())
-                //     {
-                //         try
-                //         {
-                //             appContext.Database.EnsureCreated();
-                //         }
-                //         catch (Exception ex)
-                //         {
-                //             //Log errors or do anything you think it's needed
-                //             throw;
-                //         }
-                //     }
-                // }
             });
         }
     }
