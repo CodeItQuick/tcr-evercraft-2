@@ -22,6 +22,7 @@ public class AdapterSmokeTests
     {
         var response = await _client.GetAsync($"/Home/Home");
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
@@ -33,6 +34,7 @@ public class AdapterSmokeTests
                 new KeyValuePair<string, string>() {  }
             }));
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
