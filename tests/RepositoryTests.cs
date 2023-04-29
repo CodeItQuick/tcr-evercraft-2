@@ -22,7 +22,7 @@ public class RepositoryTests
         return Task.CompletedTask;
     }
     [Test]
-    public Task RepositoryCanCreateNewCharacters()
+    public void RepositoryCanCreateNewCharacters()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanAddCharacter").Options;
@@ -33,7 +33,6 @@ public class RepositoryTests
         var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
         Assert.That(createCharacter, Is.EqualTo(1));
-        return Task.CompletedTask;
     }
     [Test]
     public Task RepositoryCanRemoveNewCharacter()
