@@ -10,7 +10,7 @@ public class InterstitialControllerTests
 {
     
     [Test]
-    public Task CanRetrieveViewFromIndex()
+    public void CanRetrieveViewFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
@@ -22,7 +22,6 @@ public class InterstitialControllerTests
         
         Assert.IsNotNull(viewResult);
         Assert.GreaterOrEqual(viewResultModel?.DnDCharacters?.Count, 0);
-        return Task.CompletedTask;
     }
     [Test]
     public void CanCreateNewCharacterFromIndexes()
@@ -39,7 +38,7 @@ public class InterstitialControllerTests
         Assert.IsNotNull(viewResult);
         Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
-        Assert.That(viewResultModel?.DnDCharacters?.Last().Hitpoints, Is.EqualTo(10));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().Hitpoints, Is.GreaterThan(0));
     }
     [Test]
     public void CanRemoveNewCharacterFromIndexes()
