@@ -88,6 +88,7 @@ public class AdapterSmokeTests
     {
         var response = await _client.PostAsync($"/Home/CharacterAttacked/1", null);
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
 }
