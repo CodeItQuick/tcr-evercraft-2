@@ -50,10 +50,10 @@ public class HomeRepository : IHomeRepository
         _applicationDbContext.SaveChanges();
     }
 
-    public void AttackCharacter(int attackedCharacterId)
+    public void AttackCharacter(int attackedCharacterId, int randomDieRoll)
     {
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
-        if (dnDCharacter is { Armor: < 11 })
+        if (dnDCharacter is { } character && character.Armor < randomDieRoll)
         {
             dnDCharacter.HitPoints -= 1;
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
