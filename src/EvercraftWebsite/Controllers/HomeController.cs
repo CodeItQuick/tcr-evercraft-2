@@ -7,6 +7,7 @@ namespace EvercraftWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly IHomeRepository _homeRepository;
+        private Random _random = new Random();
 
         public HomeController(IHomeRepository homeRepository)
         {
@@ -70,7 +71,7 @@ namespace EvercraftWebsite.Controllers
         // }
         public void CharacterAttacked(int attackedCharacterId)
         {
-            var randomDieRoll = new Random().Next(1, 20);
+            var randomDieRoll = _random.Next(1, 20);
             _homeRepository.AttackCharacter(attackedCharacterId, randomDieRoll);
         }
     }
