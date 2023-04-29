@@ -6,18 +6,6 @@ namespace tcr_evercraft_2_tests;
 
 public class RepositoryTests
 {
-    private readonly EvercraftDbContext _evercraftDbContext;
-    private readonly HomeRepository _homeRepository;
-
-    public RepositoryTests()
-    {
-        
-        var dbOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase(databaseName: "TestCatalog")
-            .Options;
-        _evercraftDbContext = new EvercraftDbContext(dbOptions);
-        _homeRepository = new HomeRepository(_evercraftDbContext);
-    }
 
     [Test]
     public void RepositoryCanRetrieveListOfCharacter()
@@ -28,15 +16,20 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
 
-        var retrieveDnDCharacters = _homeRepository.RetrieveDnDCharacters();
+        var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
         
         Assert.GreaterOrEqual(retrieveDnDCharacters.Count, 0);
     }
     [Test]
     public void RepositoryCanCreateNewCharacters()
     { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanAddCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
 
-        var createCharacter = _homeRepository.CreateCharacter("can create character with name");
+        var createCharacter = homeRepository.CreateCharacter("can create character with name");
         
         Assert.That(createCharacter, Is.EqualTo(1));
     }
