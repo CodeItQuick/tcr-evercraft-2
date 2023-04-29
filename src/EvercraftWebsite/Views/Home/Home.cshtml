@@ -26,7 +26,7 @@
                     foreach (var dnDCharacter in Model?.DnDCharacters)
                     {
                         <div class="m-4">
-                            @dnDCharacter.CharacterName
+                            @dnDCharacter.CharacterName (@dnDCharacter.Hitpoints Hp)
                             <form method="POST" action="Delete" >
                                 <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
                                 <button

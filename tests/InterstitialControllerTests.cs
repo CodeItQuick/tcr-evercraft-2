@@ -25,7 +25,7 @@ public class InterstitialControllerTests
         return Task.CompletedTask;
     }
     [Test]
-    public Task CanCreateNewCharacterFromIndexes()
+    public void CanCreateNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Create New Character Interstitial").Options;
@@ -40,7 +40,6 @@ public class InterstitialControllerTests
         Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
         Assert.That(viewResultModel?.DnDCharacters?.Last().Hitpoints, Is.EqualTo(10));
-        return Task.CompletedTask;
     }
     [Test]
     public void CanRemoveNewCharacterFromIndexes()
