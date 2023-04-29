@@ -91,4 +91,17 @@ public class RepositoryTests
         
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
     }
+    [Test]
+    public void RepositoryCanCreateNewCharacterWithArmor()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanAddCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+
+        homeRepository.CreateCharacter("can create character with 10 hitpoints");
+        
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
+    }
 }
