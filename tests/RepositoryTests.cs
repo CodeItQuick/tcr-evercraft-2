@@ -118,4 +118,18 @@ public class RepositoryTests
         
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
     }
+    [Test]
+    public void RepositoryCanAttackNewCharactersAndHitThemWithNineRoll()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanAttackAnotherCharacter").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("can attack character");
+
+        homeRepository.AttackCharacter(1, 11);
+        
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
+    }
 }
