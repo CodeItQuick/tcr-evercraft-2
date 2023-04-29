@@ -53,7 +53,7 @@ public class HomeRepository : IHomeRepository
     public void AttackCharacter(int attackedCharacterId)
     {
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
-        if (11 > dnDCharacter.Armor)
+        if (dnDCharacter is { Armor: < 11 })
         {
             dnDCharacter.HitPoints -= 1;
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
