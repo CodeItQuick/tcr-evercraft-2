@@ -18,7 +18,8 @@ namespace tcr_evercraft_2_tests
             builder.ConfigureServices(services =>
             {
                 var descriptors = services.Where(d =>
-                    d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>));
+                    d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>))
+                    .ToList();
 
             });
             return base.CreateHost(builder);
