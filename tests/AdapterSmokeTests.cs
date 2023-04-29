@@ -4,7 +4,6 @@ using System.Net;
 using EvercraftWebsite.Controllers;
 using EvercraftWebsite.Data;
 using EvercraftWebsite.Views.Home;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 namespace tcr_evercraft_2_tests;
 
@@ -15,10 +14,7 @@ public class AdapterSmokeTests
     public void SetUp()
     {
         var testingWebAppFactory = new TestingWebAppFactory();
-        _client = testingWebAppFactory.CreateClient(new WebApplicationFactoryClientOptions()
-        {
-            AllowAutoRedirect = false
-        });
+        _client = testingWebAppFactory.CreateClient();
     }
 
     [Test]
@@ -39,7 +35,7 @@ public class AdapterSmokeTests
             }));
 
         response.EnsureSuccessStatusCode();
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
     public async Task HomeIndexPostWithCharacterNameRequestPopulatesPage()
@@ -50,13 +46,15 @@ public class AdapterSmokeTests
                 new("characterName", "HelloWorld")
             }));
 
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        response.EnsureSuccessStatusCode();
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
     public async Task MainIndexPopulatesPage()
     {
         var response = await _client.GetAsync($"/Index");
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
@@ -66,14 +64,16 @@ public class AdapterSmokeTests
             new FormUrlEncodedContent(new []{ new KeyValuePair<string, string>() })
             );
 
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        response.EnsureSuccessStatusCode();
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
     public async Task EditIndexPopulatesIndexPage()
     {
         var response = await _client.GetAsync($"/Home/Edit/1");
 
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        response.EnsureSuccessStatusCode();
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
     public async Task DeleteIndexPopulatesIndexPage()
@@ -82,13 +82,15 @@ public class AdapterSmokeTests
 
         var redirectLocation = response!.Headers.Location;
         
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        response.EnsureSuccessStatusCode();
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
     public async Task CharacterAttackedPopulatesIndexPage()
     {
         var response = await _client.PostAsync($"/Home/CharacterAttacked/1", null);
 
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        response.EnsureSuccessStatusCode();
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
 }
