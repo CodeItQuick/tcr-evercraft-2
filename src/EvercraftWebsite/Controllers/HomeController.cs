@@ -54,22 +54,6 @@ namespace EvercraftWebsite.Controllers
             return RedirectToAction("Home");
         }
 
-        //
-        // // POST: HomeController/Delete/5
-        // TODO: No idea how this works
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public ActionResult Delete(int id, IFormCollection collection)
-        // {
-        //     try
-        //     {
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     catch
-        //     {
-        //         return View();
-        //     }
-        // }
         [HttpPost]
         public ActionResult CharacterAttacked(int attackedCharacterId)
         {
