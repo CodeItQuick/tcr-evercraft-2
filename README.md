@@ -33,7 +33,7 @@ the manner the tests are written so that they always pass, etc.
 * [x] Create Character - Character has name, can edit name, can add/remove
 * [ ] Alignment
 * [x] Armor & HitPoints
-* [x] Character Can Attack
+* [ ] Character Can Attack (in-progress)
 * [ ] Character Can Be Damaged
 * [ ] Character Has Ability Scores
 * [ ] Character Has Ability Modifiers
