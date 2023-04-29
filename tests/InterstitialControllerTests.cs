@@ -57,7 +57,7 @@ public class InterstitialControllerTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
     }
     [Test]
-    public void CanEditNewCharacterFromIndexes()
+    public void CanEditNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Edited New Character Interstitial").Options;
