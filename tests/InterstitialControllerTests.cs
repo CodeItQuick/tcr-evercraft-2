@@ -39,6 +39,7 @@ public class InterstitialControllerTests
         Assert.IsNotNull(viewResult);
         Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().Hitpoints, Is.EqualTo(10));
         return Task.CompletedTask;
     }
     [Test]
