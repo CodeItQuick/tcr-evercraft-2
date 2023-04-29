@@ -38,7 +38,7 @@ public class InterstitialControllerTests
         Assert.IsNotNull(viewResult);
         Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
-        Assert.That(viewResultModel?.DnDCharacters?.Last().Hitpoints, Is.GreaterThan(0));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().HitPoints, Is.GreaterThan(0));
     }
     [Test]
     public void CanRemoveNewCharacterFromIndexes()
@@ -56,7 +56,7 @@ public class InterstitialControllerTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
     }
     [Test]
-    public void CanEditNewCharacterFromIndex()
+    public void CanEditNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Edited New Character Interstitial").Options;
