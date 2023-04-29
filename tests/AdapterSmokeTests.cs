@@ -38,7 +38,9 @@ public class AdapterSmokeTests
                 new KeyValuePair<string, string>() {  }
             }));
 
+        var redirectLocation = response!.Headers.Location;
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
     [Test]
     public async Task HomeIndexPostWithCharacterNameRequestPopulatesPage()
@@ -49,7 +51,9 @@ public class AdapterSmokeTests
                 new("characterName", "HelloWorld")
             }));
 
+        var redirectLocation = response!.Headers.Location;
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
     [Test]
     public async Task MainIndexPopulatesPage()
