@@ -112,7 +112,6 @@ public class RepositoryTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
-
         homeRepository.CreateCharacter("can attack character");
         
         Assert.That(evercraftDbContext.DnDCharacters.First().Armor, Is.EqualTo(10));
