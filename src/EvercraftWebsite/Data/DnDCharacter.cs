@@ -10,4 +10,6 @@ public class DnDCharacter
     public int Id { get; set; }
         
     public string CharacterName { get; set; }
+    
+    public int Hitpoints { get; set; }
 }
