@@ -21,7 +21,10 @@ public class HomeRepository : IHomeRepository
     }
     public int CreateCharacter(string characterName)
     {
-        _applicationDbContext.DnDCharacters.Add(new DnDCharacter() { CharacterName = characterName ?? "Hello World" });
+        _applicationDbContext.DnDCharacters.Add(new DnDCharacter()
+        {
+            CharacterName = characterName ?? "Hello World"
+        });
         var saveChanges = _applicationDbContext.SaveChanges();
         return saveChanges;
     }
