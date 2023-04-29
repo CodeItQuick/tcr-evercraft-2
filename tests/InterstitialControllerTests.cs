@@ -79,7 +79,7 @@ public class InterstitialControllerTests
             .UseInMemoryDatabase("New Character Can Be Attacked").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(evercraftDbContext);
-        var homeController = new HomeController(homeRepository, new DieRandomPicker(true, 11));
+        var homeController = new HomeController(homeRepository, new DieRandomPicker(11));
         homeController.Create("attacked character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 

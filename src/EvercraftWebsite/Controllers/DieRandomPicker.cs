@@ -9,9 +9,9 @@ public class DieRandomPicker : Random
     {
     }
 
-    public DieRandomPicker(bool hasCustomRoll, int customRoll)
+    public DieRandomPicker(int customRoll)
     {
-        _hasCustomRoll = hasCustomRoll;
+        _hasCustomRoll = true;
         _customRoll = customRoll;
     }
 
