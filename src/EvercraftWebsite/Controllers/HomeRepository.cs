@@ -52,6 +52,6 @@ public class HomeRepository : IHomeRepository
 
     public void AttackCharacter(int attackedCharacterId)
     {
-        
+        var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
     }
 }
