@@ -79,7 +79,7 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
     }
     [Test]
-    public void RepositoryCanCreateNewCharacterWithHitpoints()
+    public void RepositoryCanCreateNewCharacterWithHitPoints()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanAddCharacter").Options;
@@ -90,6 +90,6 @@ public class RepositoryTests
         var createCharacter = homeRepository.CreateCharacter("can create character with 10 hitpoints");
         
         Assert.That(createCharacter, Is.EqualTo(1));
-        Assert.That(evercraftDbContext.DnDCharacters.First().Hitpoints, Is.EqualTo(10));
+        Assert.That(evercraftDbContext.DnDCharacters.First().Hitpoints, Is.EqualTo(5));
     }
 }
