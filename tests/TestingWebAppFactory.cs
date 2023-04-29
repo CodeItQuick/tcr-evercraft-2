@@ -20,7 +20,10 @@ namespace tcr_evercraft_2_tests
                 var descriptors = services.Where(d =>
                     d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>))
                     .ToList();
-
+                foreach (var descriptor in descriptors)
+                {
+                    services.Remove(descriptor);
+                }
             });
             return base.CreateHost(builder);
         }
