@@ -105,7 +105,7 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().Armor, Is.EqualTo(10));
     }
     [Test]
-    public void RepositoryCanAttackNewCharacters()
+    public void RepositoryCanAttackNewCharactersAndHitThemWithElevenRoll()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanAttackCharacter").Options;
