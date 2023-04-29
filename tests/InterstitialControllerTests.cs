@@ -15,7 +15,7 @@ public class InterstitialControllerTests
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
         var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
-        var homeController = new HomeController(homeRepository);
+        var homeController = new HomeController(homeRepository, new DieRandomPicker());
 
         var viewResult = homeController.Home() as ViewResult;
         var viewResultModel = viewResult?.Model as HomeModel;
@@ -29,7 +29,7 @@ public class InterstitialControllerTests
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Create New Character Interstitial").Options;
         var homeRepository = new HomeRepository(new EvercraftDbContext(dbContextOptions));
-        var homeController = new HomeController(homeRepository);
+        var homeController = new HomeController(homeRepository, new DieRandomPicker());
 
         homeController.Create("create character test");
         var viewResult = homeController.Home() as ViewResult;
@@ -48,7 +48,7 @@ public class InterstitialControllerTests
             .UseInMemoryDatabase("Remove New Character Interstitial").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(evercraftDbContext);
-        var homeController = new HomeController(homeRepository);
+        var homeController = new HomeController(homeRepository, new DieRandomPicker());
         homeController.Create("remove character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
@@ -63,7 +63,7 @@ public class InterstitialControllerTests
             .UseInMemoryDatabase("Edited New Character Interstitial").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(evercraftDbContext);
-        var homeController = new HomeController(homeRepository);
+        var homeController = new HomeController(homeRepository, new DieRandomPicker());
         homeController.Create("edit character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
@@ -79,7 +79,7 @@ public class InterstitialControllerTests
             .UseInMemoryDatabase("New Character Can Be Attacked").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(evercraftDbContext);
-        var homeController = new HomeController(homeRepository);
+        var homeController = new HomeController(homeRepository, new DieRandomPicker());
         homeController.Create("attacked character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 

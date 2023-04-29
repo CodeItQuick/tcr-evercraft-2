@@ -9,10 +9,10 @@ namespace EvercraftWebsite.Controllers
         private readonly IHomeRepository _homeRepository;
         private readonly Random _random;
 
-        public HomeController(IHomeRepository homeRepository)
+        public HomeController(IHomeRepository homeRepository, DieRandomPicker? dieRandomPicker)
         {
             _homeRepository = homeRepository;
-            _random = new DieRandomPicker() ?? new();
+            _random = dieRandomPicker ?? new();
         }
 
         // GET: HomeController
