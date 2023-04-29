@@ -71,4 +71,19 @@ public class InterstitialControllerTests
 
         Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
     }
+    [Test]
+    public void CharacterCanBeAttackedByMob()
+    {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("New Character Can Be Attacked").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(evercraftDbContext);
+        var homeController = new HomeController(homeRepository);
+        homeController.Create("edit character test");
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
+        
+        homeController.Edit(1, "edited name");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
+    }
 }
