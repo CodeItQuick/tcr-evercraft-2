@@ -12,7 +12,7 @@ namespace EvercraftWebsite.Controllers
         public HomeController(IHomeRepository homeRepository)
         {
             _homeRepository = homeRepository;
-            _random = new();
+            _random = new DieRandomPicker() ?? new();
         }
 
         // GET: HomeController
@@ -75,5 +75,9 @@ namespace EvercraftWebsite.Controllers
             var randomDieRoll = _random.Next(1, 20);
             _homeRepository.AttackCharacter(attackedCharacterId, randomDieRoll);
         }
+    }
+
+    public class DieRandomPicker : Random
+    {
     }
 }
