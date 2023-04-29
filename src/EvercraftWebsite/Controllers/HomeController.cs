@@ -70,10 +70,12 @@ namespace EvercraftWebsite.Controllers
         //         return View();
         //     }
         // }
-        public void CharacterAttacked(int attackedCharacterId)
+        [HttpPost]
+        public ActionResult CharacterAttacked(int attackedCharacterId)
         {
             var randomDieRoll = _random.Next(1, 20);
             _homeRepository.AttackCharacter(attackedCharacterId, randomDieRoll);
+            return RedirectToAction("Home");
         }
     }
 }

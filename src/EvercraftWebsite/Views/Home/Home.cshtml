@@ -37,6 +37,16 @@
                                     Remove Character
                                 </button>
                             </form>
+                            <form method="POST" action="CharacterAttacked" >
+                                <input type="hidden" class="form-control" id="attackedCharacterId" name="attackedCharacterId" value="@dnDCharacter.Id" />
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="CharacterAttacked"
+                                    class="btn btn-primary">
+                                    Mob Attacks Character
+                                </button>
+                            </form>
                             <form method="POST" action="Edit">
                                 <div class="mb-3">
                                     <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
