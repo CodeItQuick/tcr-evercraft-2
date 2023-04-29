@@ -20,7 +20,19 @@ namespace tcr_evercraft_2_tests
                 var descriptors = services.Where(d =>
                     d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>))
                     .ToList();
+                foreach (var descriptor in descriptors)
+                {
+                    services.Remove(descriptor);
+                }
 
+                services.AddScoped(sp =>
+                {
+                    // Replace SQLite with in-memory database for tests
+                    return new DbContextOptionsBuilder<EvercraftDbContext>()
+                        .UseInMemoryDatabase("InMemoryDbForTesting")
+                        .UseApplicationServiceProvider(sp)
+                        .Options;
+                });
             });
             return base.CreateHost(builder);
         }
