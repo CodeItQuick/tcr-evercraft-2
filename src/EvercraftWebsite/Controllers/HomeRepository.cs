@@ -49,4 +49,9 @@ public class HomeRepository : IHomeRepository
         }
         _applicationDbContext.SaveChanges();
     }
+
+    public void AttackCharacter(int attackedCharacterId)
+    {
+        
+    }
 }
