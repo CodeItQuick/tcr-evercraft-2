@@ -8,7 +8,7 @@ public class RepositoryTests
 {
     
     [Test]
-    public Task RepositoryCanRetrieveListOfCharacter()
+    public void RepositoryCanRetrieveListOfCharacter()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanRetrieveCharacter").Options;
@@ -19,7 +19,6 @@ public class RepositoryTests
         var retrieveDnDCharacters = homeRepository.RetrieveDnDCharacters();
         
         Assert.GreaterOrEqual(retrieveDnDCharacters.Count, 0);
-        return Task.CompletedTask;
     }
     [Test]
     public void RepositoryCanCreateNewCharacters()
