@@ -55,7 +55,7 @@ public class InterstitialControllerTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
     }
     [Test]
-    public async Task CanEditNewCharacterFromIndex()
+    public Task CanEditNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Edited New Character Interstitial").Options;
@@ -68,5 +68,6 @@ public class InterstitialControllerTests
         homeController.Edit(1, "edited name");
 
         Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
+        return Task.CompletedTask;
     }
 }

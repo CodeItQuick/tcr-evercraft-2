@@ -32,7 +32,7 @@ the manner the tests are written so that they always pass, etc.
 * [ ] Core (First Iteration)
 * [x] Create Character - Character has name, can edit name, can add/remove
 * [ ] Alignment
-* [ ] Armor & Hitpoints
+* [ ] Armor & Hitpoints (in-progress)
 * [ ] Character Can Attack
 * [ ] Character Can Be Damaged
 * [ ] Character Has Ability Scores
