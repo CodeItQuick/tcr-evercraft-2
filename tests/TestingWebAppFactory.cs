@@ -18,7 +18,8 @@ namespace tcr_evercraft_2_tests
             builder.ConfigureServices(services =>
             {
                 var descriptors = services.Where(d =>
-                    d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>))
+                    d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>) ||
+                    d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>))
                     .ToList();
                 foreach (var descriptor in descriptors)
                 {
@@ -27,6 +28,10 @@ namespace tcr_evercraft_2_tests
 
                 services.AddScoped(sp => new DbContextOptionsBuilder<EvercraftDbContext>()
                     .UseInMemoryDatabase("InMemoryDbForTesting")
+                    .UseApplicationServiceProvider(sp)
+                    .Options);
+                services.AddScoped(sp => new DbContextOptionsBuilder<ApplicationDbContext>()
+                    .UseInMemoryDatabase("Identity")
                     .UseApplicationServiceProvider(sp)
                     .Options);
             });
