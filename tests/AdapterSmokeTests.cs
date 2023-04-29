@@ -11,6 +11,7 @@ namespace tcr_evercraft_2_tests;
 public class AdapterSmokeTests
 {
     private HttpClient _client;
+    private static TestingWebAppFactory _application = new();
     [SetUp]
     public void SetUp()
     {
