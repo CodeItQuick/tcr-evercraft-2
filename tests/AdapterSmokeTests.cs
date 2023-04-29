@@ -4,6 +4,7 @@ using System.Net;
 using EvercraftWebsite.Controllers;
 using EvercraftWebsite.Data;
 using EvercraftWebsite.Views.Home;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 namespace tcr_evercraft_2_tests;
 
@@ -14,7 +15,10 @@ public class AdapterSmokeTests
     public void SetUp()
     {
         var testingWebAppFactory = new TestingWebAppFactory();
-        _client = testingWebAppFactory.CreateClient();
+        _client = testingWebAppFactory.CreateClient(new WebApplicationFactoryClientOptions()
+        {
+            AllowAutoRedirect = false
+        });
     }
 
     [Test]
