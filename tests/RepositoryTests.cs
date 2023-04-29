@@ -119,7 +119,7 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
     }
     [Test]
-    public void RepositoryCanAttackNewCharactersAndMissThemWithNineRoll()
+    public void RepositoryCanAttackNewCharactersAndMissThemWithNineRolls()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanAttackAnotherCharacter").Options;
@@ -128,8 +128,8 @@ public class RepositoryTests
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
 
-        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 9);
         
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
     }
 }
