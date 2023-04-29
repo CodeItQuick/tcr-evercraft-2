@@ -80,7 +80,7 @@ public class RepositoryTests
 
         homeRepository.EditCharacter(1, "edited name");
         
-        Assert.That("edited name", Is.EqualTo(evercraftDbContext.DnDCharacters.First().CharacterName));
+        Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
         return Task.CompletedTask;
     }
 }
