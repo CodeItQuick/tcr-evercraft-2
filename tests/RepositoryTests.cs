@@ -35,7 +35,7 @@ public class RepositoryTests
         Assert.That(createCharacter, Is.EqualTo(1));
     }
     [Test]
-    public Task RepositoryCanRemoveNewCharacter()
+    public void RepositoryCanRemoveNewCharacter()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanRemoveCharacter").Options;
@@ -49,10 +49,9 @@ public class RepositoryTests
         
         Assert.That(createCharacter, Is.EqualTo(1));
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
-        return Task.CompletedTask;
     }
     [Test]
-    public Task RepositoryCannotRemoveNonPresentCharacter()
+    public void RepositoryCannotRemoveNonPresentCharacter()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanRemoveCharacter").Options;
@@ -63,7 +62,6 @@ public class RepositoryTests
         homeRepository.RemoveCharacter(1);
         
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
-        return Task.CompletedTask;
     }
 
     [Test]
