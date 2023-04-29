@@ -10,7 +10,7 @@ namespace tcr_evercraft_2_tests
 {
     public class TestingWebAppFactory : WebApplicationFactory<Program>
     {
-        private readonly string _environment = "Development";
+        private readonly string _environment = "Testing";
         protected override IHost CreateHost(IHostBuilder builder)
         {
             builder.UseEnvironment(_environment);
