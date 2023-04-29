@@ -12,4 +12,5 @@ public class DnDCharacter
     public string CharacterName { get; set; }
 
     public int HitPoints { get; set; } = 5;
+    public int Armor { get; set; } = 10;
 }

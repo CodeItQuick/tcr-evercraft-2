@@ -102,6 +102,6 @@ public class RepositoryTests
 
         homeRepository.CreateCharacter("can create character with 10 hitpoints");
         
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
+        Assert.That(evercraftDbContext.DnDCharacters.First().Armor, Is.EqualTo(10));
     }
 }
