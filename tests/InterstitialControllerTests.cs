@@ -10,7 +10,7 @@ public class InterstitialControllerTests
 {
     
     [Test]
-    public async Task CanRetrieveViewFromIndex()
+    public Task CanRetrieveViewFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("RetrieveExistingCharacters").Options;
@@ -22,9 +22,10 @@ public class InterstitialControllerTests
         
         Assert.IsNotNull(viewResult);
         Assert.GreaterOrEqual(viewResultModel?.DnDCharacters?.Count, 0);
+        return Task.CompletedTask;
     }
     [Test]
-    public async Task CanCreateNewCharacterFromIndexes()
+    public Task CanCreateNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Create New Character Interstitial").Options;
@@ -38,9 +39,10 @@ public class InterstitialControllerTests
         Assert.IsNotNull(viewResult);
         Assert.That(viewResultModel?.DnDCharacters?.Count, Is.EqualTo(1));
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharacterName, Is.EqualTo("create character test"));
+        return Task.CompletedTask;
     }
     [Test]
-    public async Task CanRemoveNewCharacterFromIndexes()
+    public Task CanRemoveNewCharacterFromIndexes()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Remove New Character Interstitial").Options;
@@ -53,9 +55,10 @@ public class InterstitialControllerTests
         homeController.Delete(1);
 
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
+        return Task.CompletedTask;
     }
     [Test]
-    public Task CanEditNewCharacterFromIndex()
+    public void CanEditNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("Edited New Character Interstitial").Options;
@@ -68,6 +71,5 @@ public class InterstitialControllerTests
         homeController.Edit(1, "edited name");
 
         Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
-        return Task.CompletedTask;
     }
 }
