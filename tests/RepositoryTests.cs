@@ -6,7 +6,19 @@ namespace tcr_evercraft_2_tests;
 
 public class RepositoryTests
 {
-    
+    private readonly EvercraftDbContext _evercraftDbContext;
+    private readonly HomeRepository _homeRepository;
+
+    public RepositoryTests()
+    {
+        
+        var dbOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase(databaseName: "TestCatalog")
+            .Options;
+        _evercraftDbContext = new EvercraftDbContext(dbOptions);
+        _homeRepository = new HomeRepository(_evercraftDbContext);
+    }
+
     [Test]
     public void RepositoryCanRetrieveListOfCharacter()
     {
