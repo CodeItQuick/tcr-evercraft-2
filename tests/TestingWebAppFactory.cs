@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using EvercraftWebsite.Data;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
@@ -12,6 +14,13 @@ namespace tcr_evercraft_2_tests
         protected override IHost CreateHost(IHostBuilder builder)
         {
             builder.UseEnvironment(_environment);
+
+            builder.ConfigureServices(services =>
+            {
+                var descriptors = services.Where(d =>
+                    d.ServiceType == typeof(DbContextOptions<EvercraftDbContext>));
+
+            });
             return base.CreateHost(builder);
         }
         protected override void ConfigureWebHost(IWebHostBuilder builder)
