@@ -83,6 +83,7 @@ public class AdapterSmokeTests
         var redirectLocation = response!.Headers.Location;
         
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.AreEqual("/", redirectLocation!.OriginalString);
     }
     [Test]
     public async Task CharacterAttackedPopulatesIndexPage()
