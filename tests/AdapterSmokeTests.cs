@@ -76,4 +76,11 @@ public class AdapterSmokeTests
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
+    [Test]
+    public async Task CharacterAttackedIndexPopulatesIndexPages()
+    {
+        var response = await _client.PostAsync($"/Home/CharacterAttacked/1", null);
+
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+    }
 }
