@@ -14,6 +14,11 @@ See the Evercraft.md file for more information on the details
 
 # Advantages/Disadvantages of TCR
 
+Biggest Takeaway:
+Should be running tests very frequently, on the order of every 2-3 minutes causes a huge improvement
+in code quality/work flow.
+
+
 TCR Seems to Encourage:
 1. Small Steps - Encouraging writing a small amount of production code at a time
 2. Frequent Committing
