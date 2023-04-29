@@ -96,7 +96,9 @@ public class AdapterSmokeTests
     public async Task CharacterAttackedPopulatesIndexPage()
     {
         var response = await _client.PostAsync($"/Home/CharacterAttacked/1", null);
-
+        
+        var redirectLocation = response!.Headers.Location;
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
 }
