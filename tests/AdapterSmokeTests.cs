@@ -12,6 +12,18 @@ public class AdapterSmokeTests
 {
     private HttpClient _client;
     private static TestingWebAppFactory _application = new();
+
+    public static HttpClient NewClient
+    {
+        get
+        {
+            return _application.CreateClient(new WebApplicationFactoryClientOptions()
+            {
+                AllowAutoRedirect = false
+            });
+        }
+    }
+    
     [SetUp]
     public void SetUp()
     {
