@@ -101,4 +101,13 @@ public class AdapterSmokeTests
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
         Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
+    [Test]
+    public async Task HomePagePopulates()
+    {
+        var response = await _client.GetAsync("/");
+
+        response.EnsureSuccessStatusCode();
+        var stringResponse = await response.Content.ReadAsStringAsync();
+        StringAssert.Contains("Evercraft", stringResponse);
+    }
 }
