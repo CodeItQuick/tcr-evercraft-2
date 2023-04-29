@@ -70,7 +70,8 @@ namespace EvercraftWebsite.Controllers
         // }
         public void CharacterAttacked(int attackedCharacterId)
         {
-            _homeRepository.AttackCharacter(attackedCharacterId, 11);
+            var randomDieRoll = 11;
+            _homeRepository.AttackCharacter(attackedCharacterId, randomDieRoll);
         }
     }
 }
