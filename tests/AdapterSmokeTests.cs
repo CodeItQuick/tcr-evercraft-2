@@ -44,6 +44,7 @@ public class AdapterSmokeTests
                 new("characterName", "HelloWorld")
             }));
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
@@ -51,6 +52,7 @@ public class AdapterSmokeTests
     {
         var response = await _client.GetAsync($"/Index");
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
@@ -60,6 +62,7 @@ public class AdapterSmokeTests
             new FormUrlEncodedContent(new []{ new KeyValuePair<string, string>() })
             );
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
