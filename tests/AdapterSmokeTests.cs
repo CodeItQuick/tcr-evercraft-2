@@ -73,7 +73,9 @@ public class AdapterSmokeTests
     {
         var response = await _client.GetAsync($"/Home/Edit/1");
 
+        var redirectLocation = response!.Headers.Location;
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
     [Test]
     public async Task DeleteIndexPopulatesIndexPage()
@@ -81,7 +83,6 @@ public class AdapterSmokeTests
         var response = await _client.GetAsync($"/Home/Delete/1");
 
         var redirectLocation = response!.Headers.Location;
-        
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
         Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
