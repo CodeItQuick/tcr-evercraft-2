@@ -83,5 +83,7 @@ public class InterstitialControllerTests
         homeController.Create("attacked character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
 
+        homeController.CharacterAttacked(1);
+
     }
 }

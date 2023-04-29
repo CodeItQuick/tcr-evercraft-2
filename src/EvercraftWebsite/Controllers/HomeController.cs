@@ -68,5 +68,9 @@ namespace EvercraftWebsite.Controllers
         //         return View();
         //     }
         // }
+        public void CharacterAttacked(int i)
+        {
+            
+        }
     }
 }
