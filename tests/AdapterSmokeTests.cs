@@ -67,6 +67,7 @@ public class AdapterSmokeTests
     {
         var response = await _client.GetAsync($"/Home/Edit/1");
 
+        response.EnsureSuccessStatusCode();
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
     [Test]
