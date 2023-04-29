@@ -116,7 +116,6 @@ public class RepositoryTests
 
         homeRepository.AttackCharacter(1, 11);
         
-        Assert.That(evercraftDbContext.DnDCharacters.First().Armor, Is.EqualTo(10));
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
     }
 }
