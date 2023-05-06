@@ -58,11 +58,7 @@ public class HomeRepository : IHomeRepository
         
         if (dnDCharacter is not { } character || character.Armor >= randomDieRoll) return;
 
-        int damageAmt = 1;
-        if (randomDieRoll == 20)
-        {
-            damageAmt = 2;
-        }
+        int damageAmt = randomDieRoll == 20 ? 2 : 1;
 
         if (character.HitPoints <= damageAmt)
         {
