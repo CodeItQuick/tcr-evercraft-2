@@ -118,7 +118,7 @@ public class HomeRepository : IHomeRepository
                     return dnDCharacter;
                 }
             };
-            modifierHandler["Charisma"](modifierIdx);
+            dnDCharacter.CharismaModifier = Modifiers[modifierIdx];
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
         _applicationDbContext.SaveChanges();
