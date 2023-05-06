@@ -80,6 +80,21 @@
                                     Edit Alignment
                                 </button>
                             </form>
+                            <form method="POST" action="EditModifiers">
+                                <div class="mb-3">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <label for="editedCharisma" class="form-label">Charisma: @dnDCharacter.CharismaModifier.ToString()</label>
+                                    <input type="number" class="form-control" id="editedCharisma" name="modifierNumber" value="" />
+                                    <input type="text" class="form-control" id="editedCharisma" name="modifierType" value="Charisma" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="EditModifiers"
+                                    class="btn btn-primary">
+                                    Edit Charisma
+                                </button>
+                            </form>
                         </div>
                     }
                 }
