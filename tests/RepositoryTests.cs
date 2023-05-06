@@ -325,4 +325,19 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, 
             Is.EqualTo(CharacterModifier.Ten));
     }
+    [Test]
+    public void RepositoryNewCharacterCanSetModifierToThirteen()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CharacterHasCharismaModifiers").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("Charisma character");
+
+        homeRepository.SetModifier(1, 13, "Charisma"); 
+        
+        Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, 
+            Is.EqualTo(CharacterModifier.Thirteen));
+    }
 }
