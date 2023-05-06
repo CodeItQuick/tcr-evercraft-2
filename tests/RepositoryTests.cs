@@ -456,11 +456,11 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
-        homeRepository.SetModifier(1, 15, "Strength");
+        homeRepository.SetModifier(1, 13, "Strength");
 
         homeRepository.AttackCharacter(1, 20);
 
-        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
     }
 }
