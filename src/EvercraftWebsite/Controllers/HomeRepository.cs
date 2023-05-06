@@ -111,15 +111,14 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            var modifierHandler = new Dictionary<string, Func<int, DnDCharacter, DnDCharacter>>()
+            var modifierHandler = new Dictionary<string, Func<int, DnDCharacter>>()
             {
-                ["charisma"] = (value, characterValue) => { 
-                    characterValue.CharismaModifier = (CharacterModifier) value;
-                    return characterValue;
+                ["charisma"] = value => { 
+                    dnDCharacter.CharismaModifier = (CharacterModifier) value;
+                    return dnDCharacter;
                 }
             };
-            dnDCharacter = modifierHandler["Charisma"](modifierIdx, dnDCharacter);
-            
+            dnDCharacter.CharismaModifier = Modifiers[modifierIdx];
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
         _applicationDbContext.SaveChanges();
