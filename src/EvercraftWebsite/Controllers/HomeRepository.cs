@@ -122,6 +122,15 @@ public class HomeRepository : IHomeRepository
 
         var ModifierTable = new Dictionary<int, int>
         {
+            [1] = -5,
+            [2] = -4,
+            [3] = -4,
+            [4] = -3,
+            [5] = -3,
+            [6] = -2,
+            [7] = -2,
+            [8] = -1,
+            [9] = -1,
             [10] = 0,
             [11] = 0,
             [12] = 1,

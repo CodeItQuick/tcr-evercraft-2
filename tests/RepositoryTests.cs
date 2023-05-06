@@ -435,7 +435,7 @@ public class RepositoryTests
     public void RepositoryCanAttackNewCharactersAndOnModifierChangesHitStrengthCannotBeNegative()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("ModifierChangesHitStrengths").Options;
+            .UseInMemoryDatabase("ModifierChangesHitStrengthNotNegative").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
