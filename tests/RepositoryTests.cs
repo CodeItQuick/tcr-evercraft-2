@@ -318,9 +318,10 @@ public class RepositoryTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
-        
         homeRepository.CreateCharacter("Charisma character");
 
+        homeRepository.SetModifier(1, 10, "Charisma");
+        
         Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, 
             Is.EqualTo(CharacterModifier.Ten));
     }

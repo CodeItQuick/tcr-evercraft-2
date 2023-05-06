@@ -81,4 +81,9 @@ public class HomeRepository : IHomeRepository
         _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         _applicationDbContext.SaveChanges();
     }
+
+    public void SetModifier(int id, int modifierValue, string modifierType)
+    {
+        
+    }
 }
