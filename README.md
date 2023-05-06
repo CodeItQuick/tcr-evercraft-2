@@ -39,7 +39,7 @@ the manner the tests are written so that they always pass, etc.
 * [ ] Alignment
 * [x] Armor & HitPoints
 * [x] Character Can Attack
-* [ ] Character Can Be Damaged
+* [x] Character Can Be Damaged
 * [ ] Character Has Ability Scores
 * [ ] Character Has Ability Modifiers
 * [ ] Character Can Gain Experience

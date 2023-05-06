@@ -182,7 +182,7 @@ public class RepositoryTests
     public void RepositoryCanAttackNewCharactersAndOnCriticalHitCharacterDies()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CanCriticalHits").Options;
+            .UseInMemoryDatabase("CanCriticalHitCharacterDies").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
