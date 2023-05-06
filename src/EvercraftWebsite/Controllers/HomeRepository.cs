@@ -33,6 +33,34 @@ public class HomeRepository : IHomeRepository
         [20] = CharacterModifier.Twenty,
     };
 
+    private static readonly Dictionary<string, Func<int, DnDCharacter, DnDCharacter>> ModifierHandler = new Dictionary<string, Func<int, DnDCharacter, DnDCharacter>>()
+    {
+        ["charisma"] = (modifierIdx, characterValue) => { 
+            characterValue.CharismaModifier = Modifiers[modifierIdx];
+            return characterValue;
+        },
+        ["strength"] = (modifierIdx, characterValue) => { 
+            characterValue.StrengthModifier = Modifiers[modifierIdx];
+            return characterValue;
+        },
+        ["dexterity"] = (modifierIdx, characterValue) => { 
+            characterValue.DexterityModifier = Modifiers[modifierIdx];
+            return characterValue;
+        },
+        ["constitution"] = (modifierIdx, characterValue) => { 
+            characterValue.ConstitutionModifier = Modifiers[modifierIdx];
+            return characterValue;
+        },
+        ["wisdom"] = (modifierIdx, characterValue) => { 
+            characterValue.WisdomModifier = Modifiers[modifierIdx];
+            return characterValue;
+        },
+        ["intelligence"] = (modifierIdx, characterValue) => { 
+            characterValue.IntelligenceModifier = Modifiers[modifierIdx];
+            return characterValue;
+        },
+    };
+
     public HomeRepository(EvercraftDbContext? evercraftDbContext, DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
     {
         DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
@@ -111,34 +139,7 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            var modifierHandler = new Dictionary<string, Func<int, DnDCharacter, DnDCharacter>>()
-            {
-                ["charisma"] = (modifierIdx, characterValue) => { 
-                    characterValue.CharismaModifier = Modifiers[modifierIdx];
-                    return characterValue;
-                },
-                ["strength"] = (modifierIdx, characterValue) => { 
-                    characterValue.StrengthModifier = Modifiers[modifierIdx];
-                    return characterValue;
-                },
-                ["dexterity"] = (modifierIdx, characterValue) => { 
-                    characterValue.DexterityModifier = Modifiers[modifierIdx];
-                    return characterValue;
-                },
-                ["constitution"] = (modifierIdx, characterValue) => { 
-                    characterValue.ConstitutionModifier = Modifiers[modifierIdx];
-                    return characterValue;
-                },
-                ["wisdom"] = (modifierIdx, characterValue) => { 
-                    characterValue.WisdomModifier = Modifiers[modifierIdx];
-                    return characterValue;
-                },
-                ["intelligence"] = (modifierIdx, characterValue) => { 
-                    characterValue.IntelligenceModifier = Modifiers[modifierIdx];
-                    return characterValue;
-                },
-            };
-            dnDCharacter = modifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
+            dnDCharacter = ModifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
 
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
