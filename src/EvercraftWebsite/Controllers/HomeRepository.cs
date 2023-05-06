@@ -113,12 +113,12 @@ public class HomeRepository : IHomeRepository
         {
             var modifierHandler = new Dictionary<string, Func<int, DnDCharacter, DnDCharacter>>()
             {
-                ["Charisma"] = (value, characterValue) => { 
+                ["charisma"] = (value, characterValue) => { 
                     characterValue.CharismaModifier = Modifiers[value];
                     return characterValue;
                 }
             };
-            dnDCharacter = modifierHandler["Charisma"](modifierIdx, dnDCharacter);
+            dnDCharacter = modifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
 
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
