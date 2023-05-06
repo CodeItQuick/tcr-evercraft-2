@@ -115,15 +115,15 @@ public class InterstitialControllerTests
     public void CanEditModifierNewCharacterFromIndex()
     {
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("Edited New Character Alignment Interstitials").Options;
+            .UseInMemoryDatabase("Edited New Character Modifiers Interstitials").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(evercraftDbContext);
         var homeController = new HomeController(homeRepository, new DieRandomPicker());
         homeController.Create("edit character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
-        homeController.EditModifiers(1, 10, "Charisma");
+        homeController.EditModifiers(1, 16, "Charisma");
 
-        Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, Is.EqualTo(CharacterModifier.Ten));
+        Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, Is.EqualTo(CharacterModifier.Sixteen));
     }
 }
