@@ -127,4 +127,14 @@ public class AdapterSmokeTests
         
         StringAssert.Contains("Evercraft", stringResponse);
     }
+    [Test]
+    public async Task EditModifiersIndexPopulatesIndexPage()
+    {
+        var response = await Client.PostAsync(
+            $"/Home/EditModifiers/1?modifierNumber=1&modifierType=Charisma", null);
+
+        var redirectLocation = response!.Headers.Location;
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
+    }
 }
