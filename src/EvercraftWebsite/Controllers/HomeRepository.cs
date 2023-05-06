@@ -57,6 +57,12 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
         
         if (dnDCharacter is not { } character || character.Armor >= randomDieRoll) return;
+
+        if (character.HitPoints <= 0)
+        {
+            _applicationDbContext.DnDCharacters.Remove(dnDCharacter);
+            _applicationDbContext.SaveChanges();    
+        }
         
         dnDCharacter.HitPoints -= 1;
         _applicationDbContext.DnDCharacters.Update(dnDCharacter);
