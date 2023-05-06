@@ -266,4 +266,32 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().ConstitutionModifier, 
             Is.EqualTo(CharacterModifier.Ten));
     }
+    [Test]
+    public void RepositoryNewCharacterHasWisdomModifier()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CharacterHasWisdomModifier").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        
+        homeRepository.CreateCharacter("Wisdom character");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().WisdomModifier, 
+            Is.EqualTo(CharacterModifier.Ten));
+    }
+    [Test]
+    public void RepositoryNewCharacterHasIntelligenceModifier()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CharacterHasIntelligenceModifier").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        
+        homeRepository.CreateCharacter("Intelligence character");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().IntelligenceModifier, 
+            Is.EqualTo(CharacterModifier.Ten));
+    }
 }
