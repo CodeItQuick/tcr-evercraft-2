@@ -195,4 +195,17 @@ public class RepositoryTests
 
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
     }
+    [Test]
+    public void RepositoryCanAttackNewCharacterHasNeutralAlignment()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanCriticalHitCharacterHasAlignment").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("aligned character");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().Alignment, 
+            Is.EqualTo(CharacterAlignment.Neutral));
+    }
 }
