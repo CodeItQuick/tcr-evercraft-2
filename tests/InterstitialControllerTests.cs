@@ -122,8 +122,8 @@ public class InterstitialControllerTests
         homeController.Create("edit character test");
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         
-        homeController.EditAlignment(1, CharacterAlignment.Good);
+        homeController.EditModifiers(1, 10, "Charisma");
 
-        Assert.That(evercraftDbContext.DnDCharacters.First().Alignment, Is.EqualTo(CharacterAlignment.Good));
+        Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, Is.EqualTo(CharacterModifier.Ten));
     }
 }
