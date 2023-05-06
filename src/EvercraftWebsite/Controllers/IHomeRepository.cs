@@ -10,4 +10,5 @@ public interface IHomeRepository
     public void EditCharacterName(int id, string editedName);
     public void AttackCharacter(int attackedCharacterId, int randomDieRoll);
     public void EditCharacterAlignment(int id, CharacterAlignment alignment);
+    public void SetModifier(int id, int modifierIdx, string modifierType);
 }
