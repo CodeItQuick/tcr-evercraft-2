@@ -36,7 +36,7 @@ the manner the tests are written so that they always pass, etc.
 # Requirements Complete:
 * [ ] Core (First Iteration)
 * [x] Create Character - Character has name, can edit name, can add/remove
-* [ ] Alignment
+* [x] Alignment
 * [x] Armor & HitPoints
 * [x] Character Can Attack
 * [x] Character Can Be Damaged
