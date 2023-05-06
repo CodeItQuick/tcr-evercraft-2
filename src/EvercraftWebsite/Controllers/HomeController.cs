@@ -54,8 +54,8 @@ namespace EvercraftWebsite.Controllers
             _homeRepository.EditCharacterName(id, editedCharacterName);
             return RedirectToAction("Home");
         }
-        // GET: HomeController/Edit/5
-        public ActionResult Edit(int id, CharacterAlignment alignment)
+        // GET: HomeController/EditAlignment/5
+        public ActionResult EditAlignment(int id, CharacterAlignment alignment)
         {
             _homeRepository.EditCharacterAlignment(id, alignment);
             return RedirectToAction("Home");

@@ -71,6 +71,21 @@ public class InterstitialControllerTests
 
         Assert.That(evercraftDbContext.DnDCharacters.First().CharacterName, Is.EqualTo("edited name"));
     }
+    [Test]
+    public void CanEditAlignmentNewCharacterFromIndex()
+    {
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("Edited New Character Alignment Interstitial").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(evercraftDbContext);
+        var homeController = new HomeController(homeRepository, new DieRandomPicker());
+        homeController.Create("edit character test");
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
+        
+        homeController.EditAlignment(1, CharacterAlignment.Good);
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().Alignment, Is.EqualTo(CharacterAlignment.Good));
+    }
 
     [Test]
     public void CharacterCanBeAttackedByMob()
