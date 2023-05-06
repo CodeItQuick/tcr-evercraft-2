@@ -9,4 +9,5 @@ public interface IHomeRepository
     public int RemoveCharacter(int id);
     public void EditCharacterName(int id, string editedName);
     public void AttackCharacter(int attackedCharacterId, int randomDieRoll);
+    public void EditCharacterAlignment(int id, CharacterAlignment alignment);
 }

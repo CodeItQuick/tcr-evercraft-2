@@ -1,4 +1,5 @@
-﻿using EvercraftWebsite.Views.Home;
+﻿using EvercraftWebsite.Data;
+using EvercraftWebsite.Views.Home;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,6 +52,12 @@ namespace EvercraftWebsite.Controllers
         public ActionResult Edit(int id, string editedCharacterName)
         {
             _homeRepository.EditCharacterName(id, editedCharacterName);
+            return RedirectToAction("Home");
+        }
+        // GET: HomeController/Edit/5
+        public ActionResult Edit(int id, CharacterAlignment alignment)
+        {
+            _homeRepository.EditCharacterAlignment(id, alignment);
             return RedirectToAction("Home");
         }
 
