@@ -61,6 +61,30 @@ public class HomeRepository : IHomeRepository
         },
     };
 
+    private static readonly Dictionary<int, int> ModifierTable = new Dictionary<int, int>
+    {
+        [1] = -5,
+        [2] = -4,
+        [3] = -4,
+        [4] = -3,
+        [5] = -3,
+        [6] = -2,
+        [7] = -2,
+        [8] = -1,
+        [9] = -1,
+        [10] = 0,
+        [11] = 0,
+        [12] = 1,
+        [13] = 1,
+        [14] = 2,
+        [15] = 2,
+        [16] = 3,
+        [17] = 3,
+        [18] = 4,
+        [19] = 4,
+        [20] = 5
+    };
+
     public HomeRepository(EvercraftDbContext? evercraftDbContext, DbContextOptions<EvercraftDbContext>? dbContextOptions = null)
     {
         DbContextOptions<EvercraftDbContext> options = dbContextOptions ?? 
@@ -120,30 +144,6 @@ public class HomeRepository : IHomeRepository
         
         if (dnDCharacter is not { } character || character.Armor >= randomDieRoll) return;
 
-        var ModifierTable = new Dictionary<int, int>
-        {
-            [1] = -5,
-            [2] = -4,
-            [3] = -4,
-            [4] = -3,
-            [5] = -3,
-            [6] = -2,
-            [7] = -2,
-            [8] = -1,
-            [9] = -1,
-            [10] = 0,
-            [11] = 0,
-            [12] = 1,
-            [13] = 1,
-            [14] = 2,
-            [15] = 2,
-            [16] = 3,
-            [17] = 3,
-            [18] = 4,
-            [19] = 4,
-            [20] = 5
-        };
-        
         var coreDamage = 1 + ModifierTable[(int) character.StrengthModifier];
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage : coreDamage;
 
