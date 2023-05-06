@@ -370,4 +370,19 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().WisdomModifier, 
             Is.EqualTo(CharacterModifier.Thirteen));
     }
+    [Test]
+    public void RepositoryNewCharacterCanSetModifierIntelligenceToThirteen()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CharacterHasCharismaModifierIntelligence").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("Intelligence character");
+
+        homeRepository.SetModifier(1, 13, "Intelligence"); 
+        
+        Assert.That(evercraftDbContext.DnDCharacters.First().IntelligenceModifier, 
+            Is.EqualTo(CharacterModifier.Thirteen));
+    }
 }
