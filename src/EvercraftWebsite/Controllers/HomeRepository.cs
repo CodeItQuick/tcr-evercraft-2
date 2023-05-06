@@ -87,24 +87,7 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            Dictionary<int, CharacterModifier> modifiers = new Dictionary<int, CharacterModifier>()
-            {
-                [1] = CharacterModifier.One,
-                [2] = CharacterModifier.Two,
-                [3] = CharacterModifier.Three,
-                [4] = CharacterModifier.Four,
-                [5] = CharacterModifier.Five,
-                [6] = CharacterModifier.Six,
-                [7] = CharacterModifier.Seven,
-                [8] = CharacterModifier.Eight,
-                [9] = CharacterModifier.Nine,
-                [10] = CharacterModifier.Ten,
-                [11] = CharacterModifier.Eleven,
-                [12] = CharacterModifier.Twelve,
-                [13] = CharacterModifier.Thirteen,
-                [14] = CharacterModifier.Fourteen,
-            };
-            dnDCharacter.CharismaModifier = modifiers[modifierValue];
+            dnDCharacter.CharismaModifier = (CharacterModifier) modifierValue;
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
         _applicationDbContext.SaveChanges();
