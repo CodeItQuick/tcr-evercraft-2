@@ -103,6 +103,12 @@ public class HomeRepository : IHomeRepository
                 [12] = CharacterModifier.Twelve,
                 [13] = CharacterModifier.Thirteen,
                 [14] = CharacterModifier.Fourteen,
+                [15] = CharacterModifier.Fifteen,
+                [16] = CharacterModifier.Sixteen,
+                [17] = CharacterModifier.Seventeen,
+                [18] = CharacterModifier.Eighteen,
+                [19] = CharacterModifier.Nineteen,
+                [20] = CharacterModifier.Twenty,
             };
             dnDCharacter.CharismaModifier = modifiers[modifierValue];
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
