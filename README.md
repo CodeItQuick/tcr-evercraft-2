@@ -40,7 +40,7 @@ the manner the tests are written so that they always pass, etc.
 * [x] Armor & HitPoints
 * [x] Character Can Attack
 * [x] Character Can Be Damaged
-* [ ] Character Has Ability Scores
+* [x] Character Has Ability Scores
 * [ ] Character Has Ability Modifiers
 * [ ] Character Can Gain Experience
 * [ ] Character Can Level
