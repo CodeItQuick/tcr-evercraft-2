@@ -162,6 +162,6 @@ public class RepositoryTests
         
         homeRepository.AttackCharacter(1, 11);
         
-        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
     }
 }

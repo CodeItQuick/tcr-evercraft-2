@@ -61,8 +61,7 @@ public class HomeRepository : IHomeRepository
         if (character.HitPoints <= 0)
         {
             _applicationDbContext.DnDCharacters.Remove(dnDCharacter);
-            _applicationDbContext.SaveChanges();
-            return;
+            _applicationDbContext.SaveChanges();    
         }
         
         dnDCharacter.HitPoints -= 1;
