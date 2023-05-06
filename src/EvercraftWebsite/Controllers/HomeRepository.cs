@@ -55,11 +55,11 @@ public class HomeRepository : IHomeRepository
     public void AttackCharacter(int attackedCharacterId, int randomDieRoll)
     {
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
-        if (dnDCharacter is { } character && character.Armor < randomDieRoll)
-        {
-            dnDCharacter.HitPoints -= 1;
-            _applicationDbContext.DnDCharacters.Update(dnDCharacter);
-            _applicationDbContext.SaveChanges();
-        }
+        
+        if (dnDCharacter is not { } character || character.Armor >= randomDieRoll) return;
+        
+        dnDCharacter.HitPoints -= 1;
+        _applicationDbContext.DnDCharacters.Update(dnDCharacter);
+        _applicationDbContext.SaveChanges();
     }
 }
