@@ -81,6 +81,15 @@ public class AdapterSmokeTests
         Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
     }
     [Test]
+    public async Task EditAlignmentIndexPopulatesIndexPage()
+    {
+        var response = await Client.GetAsync($"/Home/EditAlignment/1?alignment=1");
+
+        var redirectLocation = response!.Headers.Location;
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
+        Assert.That(redirectLocation!.OriginalString, Is.EqualTo("/Home/Home"));
+    }
+    [Test]
     public async Task DeleteIndexPopulatesIndexPage()
     {
         var response = await Client.GetAsync($"/Home/Delete/1");
