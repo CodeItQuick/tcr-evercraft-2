@@ -218,8 +218,10 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
         homeRepository.CreateCharacter("aligned character");
+        
+        homeRepository.EditCharacterAlignment(1, CharacterAlignment.Evil);
 
         Assert.That(evercraftDbContext.DnDCharacters.First().Alignment, 
-            Is.EqualTo(CharacterAlignment.Neutral));
+            Is.EqualTo(CharacterAlignment.Evil));
     }
 }
