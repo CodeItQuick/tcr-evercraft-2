@@ -143,7 +143,7 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
         
         if (dnDCharacter is not { } character ) return;
-        var effectiveArmor = randomDieRoll + ModifierTable[(int) character.DexterityModifier];
+        var effectiveArmor = randomDieRoll - ModifierTable[(int) character.DexterityModifier];
         if (character.Armor >= effectiveArmor) return;
 
         var coreDamage = (int) character.StrengthModifier < 10 ? 1: 1 + ModifierTable[(int) character.StrengthModifier];
