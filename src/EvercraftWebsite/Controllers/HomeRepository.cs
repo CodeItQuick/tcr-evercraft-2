@@ -87,7 +87,7 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            dnDCharacter.CharismaModifier = (CharacterModifier) modifierValue;
+            dnDCharacter.CharismaModifier = (CharacterModifier) ((NumberToModifier) modifierValue);
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
         _applicationDbContext.SaveChanges();
