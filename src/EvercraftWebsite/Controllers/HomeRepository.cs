@@ -41,12 +41,22 @@ public class HomeRepository : IHomeRepository
         return saveChanges;
     }
 
-    public void EditCharacter(int id, string editedName)
+    public void EditCharacterName(int id, string editedName)
     {
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
             dnDCharacter.CharacterName = editedName;
+            _applicationDbContext.DnDCharacters.Update(dnDCharacter);
+        }
+        _applicationDbContext.SaveChanges();
+    }
+    public void EditCharacterAlignment(int id, CharacterAlignment alignment)
+    {
+        var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
+        if (dnDCharacter != null)
+        {
+            dnDCharacter.Alignment = alignment;
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
         _applicationDbContext.SaveChanges();

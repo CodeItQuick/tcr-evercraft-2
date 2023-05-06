@@ -50,7 +50,7 @@ namespace EvercraftWebsite.Controllers
         // GET: HomeController/Edit/5
         public ActionResult Edit(int id, string editedCharacterName)
         {
-            _homeRepository.EditCharacter(id, editedCharacterName);
+            _homeRepository.EditCharacterName(id, editedCharacterName);
             return RedirectToAction("Home");
         }
 
