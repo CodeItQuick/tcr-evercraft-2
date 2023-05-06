@@ -265,6 +265,8 @@ public class RepositoryTests
 
         Assert.That(evercraftDbContext.DnDCharacters.First().ConstitutionModifier, 
             Is.EqualTo(CharacterModifier.Ten));
+        Assert.That((int) evercraftDbContext.DnDCharacters.First().ConstitutionModifier, 
+            Is.EqualTo(0));
     }
     [Test]
     public void RepositoryNewCharacterHasWisdomModifier()
