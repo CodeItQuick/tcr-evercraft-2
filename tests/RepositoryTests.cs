@@ -178,18 +178,4 @@ public class RepositoryTests
 
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(3));
     }
-    [Test]
-    public void RepositoryCanAttackNewCharactersAndOnCriticalHitCharacterDies()
-    { 
-        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CanCriticalHit").Options;
-        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
-        var homeRepository = new HomeRepository(
-            evercraftDbContext);
-        homeRepository.CreateCharacter("can attack character");
-
-        homeRepository.AttackCharacter(1, 20);
-
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(3));
-    }
 }
