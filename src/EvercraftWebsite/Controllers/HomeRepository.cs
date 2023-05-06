@@ -125,7 +125,7 @@ public class HomeRepository : IHomeRepository
             [10] = 0
         };
         
-        var coreDamage = 1 + ModifierTable[10];
+        var coreDamage = 1 + ModifierTable[(int) character.StrengthModifier];
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage : coreDamage;
 
         if (character.HitPoints <= damageAmt)
