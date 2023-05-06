@@ -84,6 +84,12 @@ public class HomeRepository : IHomeRepository
 
     public void SetModifier(int id, int modifierValue, string modifierType)
     {
-        
+        var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
+        if (dnDCharacter != null)
+        {
+            dnDCharacter.CharismaModifier = (CharacterModifier) modifierValue;
+            _applicationDbContext.DnDCharacters.Update(dnDCharacter);
+        }
+        _applicationDbContext.SaveChanges();
     }
 }
