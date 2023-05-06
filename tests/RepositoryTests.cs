@@ -238,7 +238,7 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().StrengthModifier, 
             Is.EqualTo(CharacterModifier.Ten));
         Assert.That((int) evercraftDbContext.DnDCharacters.First().StrengthModifier, 
-            Is.EqualTo(0));
+            Is.EqualTo(10));
     }
     [Test]
     public void RepositoryNewCharacterHasDexterityModifier()
