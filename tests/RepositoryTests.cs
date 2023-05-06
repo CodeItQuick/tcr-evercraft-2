@@ -252,4 +252,18 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().DexterityModifier, 
             Is.EqualTo(CharacterModifier.Ten));
     }
+    [Test]
+    public void RepositoryNewCharacterHasConstitutionModifier()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CharacterHasConstitutionModifier").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        
+        homeRepository.CreateCharacter("Constitution character");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().ConstitutionModifier, 
+            Is.EqualTo(CharacterModifier.Ten));
+    }
 }
