@@ -74,7 +74,7 @@ public class AdapterSmokeTests
     [Test]
     public async Task EditIndexPopulatesIndexPage()
     {
-        var response = await Client.GetAsync($"/Home/Edit/1");
+        var response = await Client.GetAsync($"/Home/Edit/1?editedCharacterName=HelloWorld");
 
         var redirectLocation = response!.Headers.Location;
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Found));
