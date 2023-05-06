@@ -150,14 +150,16 @@ public class RepositoryTests
     public void RepositoryCanAttackNewCharactersAndAtOneHitpointDies()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("CanAttackAnotherCharacterAtZero").Options;
+            .UseInMemoryDatabase("CanKillCharacter").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
-
-        homeRepository.AttackCharacter(1, 10);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
         
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(1));
     }
 }
