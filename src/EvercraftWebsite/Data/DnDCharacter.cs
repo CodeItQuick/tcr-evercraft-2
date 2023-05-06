@@ -12,7 +12,12 @@ public class DnDCharacter
     public int HitPoints { get; set; } = 5;
     public int Armor { get; set; } = 10;
     public CharacterAlignment Alignment { get; set; } = CharacterAlignment.Neutral;
-    public CharacterModifier StrengthModifier { get; set; }
+    public CharacterModifier StrengthModifier { get; set; } = CharacterModifier.Ten;
+    public CharacterModifier DexterityModifier { get; set; } = CharacterModifier.Ten;
+    public CharacterModifier ConstitutionModifier { get; set; } = CharacterModifier.Ten;
+    public CharacterModifier WisdomModifier { get; set; } = CharacterModifier.Ten;
+    public CharacterModifier IntelligenceModifier { get; set; } = CharacterModifier.Ten;
+    public CharacterModifier CharismaModifier { get; set; } = CharacterModifier.Ten;
 }
 
 public enum NumberToModifier
