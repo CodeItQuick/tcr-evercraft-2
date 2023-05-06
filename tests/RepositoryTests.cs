@@ -224,4 +224,18 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().Alignment, 
             Is.EqualTo(CharacterAlignment.Evil));
     }
+    [Test]
+    public void RepositoryNewCharacterHasStrengthModifier()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CharacterHasStrengthModifier").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        
+        homeRepository.CreateCharacter("strength character");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().StrengthModifier, 
+            Is.EqualTo(CharacterModifier.Ten));
+    }
 }
