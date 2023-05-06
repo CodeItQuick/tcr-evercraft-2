@@ -120,7 +120,12 @@ public class HomeRepository : IHomeRepository
         
         if (dnDCharacter is not { } character || character.Armor >= randomDieRoll) return;
 
-        var coreDamage = 1;
+        var ModifierTable = new Dictionary<int, int>
+        {
+            [10] = 0
+        };
+        
+        var coreDamage = 1 + ModifierTable[10];
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage : coreDamage;
 
         if (character.HitPoints <= damageAmt)
