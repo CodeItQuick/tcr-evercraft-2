@@ -320,9 +320,9 @@ public class RepositoryTests
             evercraftDbContext);
         homeRepository.CreateCharacter("Charisma character");
 
-        homeRepository.SetModifier(1, 11, "Charisma");
+        homeRepository.SetModifier(1, 9, "Charisma");
         
         Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, 
-            Is.EqualTo(CharacterModifier.Twelve));
+            Is.EqualTo(CharacterModifier.Ten));
     }
 }
