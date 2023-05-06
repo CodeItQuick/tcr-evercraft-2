@@ -122,7 +122,10 @@ public class HomeRepository : IHomeRepository
 
         var ModifierTable = new Dictionary<int, int>
         {
-            [10] = 0
+            [10] = 0,
+            [11] = 0,
+            [12] = 1,
+            [13] = 1
         };
         
         var coreDamage = 1 + ModifierTable[(int) character.StrengthModifier];
