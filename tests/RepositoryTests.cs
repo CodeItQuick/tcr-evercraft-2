@@ -155,9 +155,11 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
-
-        homeRepository.AttackCharacter(1, 10);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
         
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(1));
     }
 }
