@@ -176,6 +176,7 @@ public class RepositoryTests
 
         homeRepository.AttackCharacter(1, 20);
         
+        
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
     }
 }
