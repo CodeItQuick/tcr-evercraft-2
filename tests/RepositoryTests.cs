@@ -350,9 +350,9 @@ public class RepositoryTests
             evercraftDbContext);
         homeRepository.CreateCharacter("Strength character");
 
-        homeRepository.SetModifier(1, 13, "Charisma"); 
+        homeRepository.SetModifier(1, 13, "Strength"); 
         
-        Assert.That(evercraftDbContext.DnDCharacters.First().CharismaModifier, 
+        Assert.That(evercraftDbContext.DnDCharacters.First().StrengthModifier, 
             Is.EqualTo(CharacterModifier.Thirteen));
     }
 }
