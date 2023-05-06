@@ -9,7 +9,7 @@ public class HomeRepository : IHomeRepository
 {
     private readonly EvercraftDbContext _applicationDbContext;
 
-    private static readonly Dictionary<int, CharacterModifier> Modifiers = new Dictionary<int, CharacterModifier>()
+    private static readonly Dictionary<int, CharacterModifier> Modifiers = new()
     {
         [1] = CharacterModifier.One,
         [2] = CharacterModifier.Two,
@@ -33,7 +33,7 @@ public class HomeRepository : IHomeRepository
         [20] = CharacterModifier.Twenty,
     };
 
-    private static readonly Dictionary<string, Func<int, DnDCharacter, DnDCharacter>> ModifierHandler = new Dictionary<string, Func<int, DnDCharacter, DnDCharacter>>()
+    private static readonly Dictionary<string, Func<int, DnDCharacter, DnDCharacter>> ModifierHandler = new()
     {
         ["charisma"] = (modifierIdx, characterValue) => { 
             characterValue.CharismaModifier = Modifiers[modifierIdx];
