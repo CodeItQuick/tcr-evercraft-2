@@ -116,7 +116,27 @@ public class HomeRepository : IHomeRepository
                 ["charisma"] = (modifierIdx, characterValue) => { 
                     characterValue.CharismaModifier = Modifiers[modifierIdx];
                     return characterValue;
-                }
+                },
+                ["strength"] = (modifierIdx, characterValue) => { 
+                    characterValue.StrengthModifier = Modifiers[modifierIdx];
+                    return characterValue;
+                },
+                ["dexterity"] = (modifierIdx, characterValue) => { 
+                    characterValue.DexterityModifier = Modifiers[modifierIdx];
+                    return characterValue;
+                },
+                ["constitution"] = (modifierIdx, characterValue) => { 
+                    characterValue.ConstitutionModifier = Modifiers[modifierIdx];
+                    return characterValue;
+                },
+                ["wisdom"] = (modifierIdx, characterValue) => { 
+                    characterValue.WisdomModifier = Modifiers[modifierIdx];
+                    return characterValue;
+                },
+                ["intelligence"] = (modifierIdx, characterValue) => { 
+                    characterValue.IntelligenceModifier = Modifiers[modifierIdx];
+                    return characterValue;
+                },
             };
             dnDCharacter = modifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
 
