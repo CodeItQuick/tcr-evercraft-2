@@ -424,7 +424,7 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
-        homeRepository.SetModifier(1, 19, "Strength");
+        homeRepository.SetModifier(1, 18, "Strength");
 
         homeRepository.AttackCharacter(1, 20);
 
