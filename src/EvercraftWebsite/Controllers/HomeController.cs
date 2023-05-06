@@ -68,14 +68,5 @@ namespace EvercraftWebsite.Controllers
             _homeRepository.AttackCharacter(attackedCharacterId, randomDieRoll);
             return RedirectToAction("Home");
         }
-
-        
-        [HttpPost]
-        public ActionResult EditModifiers(int id, int modifierNumber, string modifierType)
-        {
-            
-            _homeRepository.SetModifier(id, modifierNumber, modifierType);
-            return RedirectToAction("Home");
-        }
     }
 }
