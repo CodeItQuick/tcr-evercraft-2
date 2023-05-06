@@ -41,6 +41,7 @@ public class InterstitialControllerTests
         Assert.That(viewResultModel?.DnDCharacters?.Last().HitPoints, Is.GreaterThan(0));
         Assert.That(viewResultModel?.DnDCharacters?.Last().Armor, Is.GreaterThan(0));
         Assert.That(viewResultModel?.DnDCharacters?.Last().Alignment, Is.EqualTo(CharacterAlignment.Neutral));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().StrengthModifier, Is.EqualTo(CharacterModifier.Ten));
     }
     [Test]
     public void CanRemoveNewCharacterFromIndexes()
