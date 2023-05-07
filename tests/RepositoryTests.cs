@@ -564,6 +564,7 @@ public class RepositoryTests
         var homeRepository = new HomeRepository(
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
+        homeRepository.CreateCharacter("Gained Experience Character");
         homeRepository.AttackCharacter(1, 11);
         homeRepository.AttackCharacter(1, 11);
         homeRepository.AttackCharacter(1, 11);
@@ -571,6 +572,6 @@ public class RepositoryTests
         
         homeRepository.AttackCharacter(1, 11);
         
-        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
     }
 }
