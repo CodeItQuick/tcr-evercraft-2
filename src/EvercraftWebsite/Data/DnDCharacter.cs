@@ -18,6 +18,7 @@ public class DnDCharacter
     public CharacterModifier WisdomModifier { get; set; } = CharacterModifier.Ten;
     public CharacterModifier IntelligenceModifier { get; set; } = CharacterModifier.Ten;
     public CharacterModifier CharismaModifier { get; set; } = CharacterModifier.Ten;
+    public int ExperiencePoints { get; set; } = 0;
 }
 
 public enum CharacterModifier

@@ -47,6 +47,7 @@ public class InterstitialControllerTests
         Assert.That(viewResultModel?.DnDCharacters?.Last().WisdomModifier, Is.EqualTo(CharacterModifier.Ten));
         Assert.That(viewResultModel?.DnDCharacters?.Last().IntelligenceModifier, Is.EqualTo(CharacterModifier.Ten));
         Assert.That(viewResultModel?.DnDCharacters?.Last().CharismaModifier, Is.EqualTo(CharacterModifier.Ten));
+        Assert.That(viewResultModel?.DnDCharacters?.Last().ExperiencePoints, Is.EqualTo(0));
     }
     [Test]
     public void CanRemoveNewCharacterFromIndexes()
