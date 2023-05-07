@@ -166,10 +166,10 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            var ConstitutionBoostsHp = 
+            var constitutionBoostsHp = 
                 modifierType.ToLower().Equals("constitution") && 
                 ModifierTable[(int)dnDCharacter.ConstitutionModifier] < ModifierTable[modifierIdx];
-            if (ConstitutionBoostsHp)
+            if (constitutionBoostsHp)
             {
                 dnDCharacter.HitPoints += ModifierTable[modifierIdx];
             }
