@@ -169,10 +169,7 @@ public class HomeRepository : IHomeRepository
             dnDCharacter = ModifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
             if (modifierType.ToLower().Equals("constitution"))
             {
-                if (ModifierTable[(int)dnDCharacter.ConstitutionModifier] < ModifierTable[modifierIdx])
-                {
-                    dnDCharacter.HitPoints += ModifierTable[modifierIdx];
-                } 
+                dnDCharacter.HitPoints += ModifierTable[modifierIdx];
             }
 
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
