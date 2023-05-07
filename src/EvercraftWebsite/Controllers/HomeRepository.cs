@@ -156,7 +156,11 @@ public class HomeRepository : IHomeRepository
             _applicationDbContext.DnDCharacters.Remove(attackedCharacter);
             _applicationDbContext.SaveChanges();
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
-            dnDCharacters.ForEach(x => x.ExperiencePoints += 1000);
+            dnDCharacters.ForEach(x => { 
+                x.ExperiencePoints += 1000;
+                x.HitPoints += 5;
+            });
+            _applicationDbContext.SaveChanges();
             return;
         }
         

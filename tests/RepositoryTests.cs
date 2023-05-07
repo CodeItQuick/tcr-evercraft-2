@@ -593,6 +593,6 @@ public class RepositoryTests
         homeRepository.AttackCharacter(1, 11);
         
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
-        Assert.That(evercraftDbContext.DnDCharacters.Last().ExperiencePoints, Is.EqualTo(1000));
+        Assert.That(evercraftDbContext.DnDCharacters.Last().HitPoints, Is.EqualTo(10));
     }
 }
