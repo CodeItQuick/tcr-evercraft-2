@@ -660,11 +660,9 @@ public class RepositoryTests
         homeRepository.CreateCharacter("can attack character");
         homeRepository.AttackCharacter(3, 11);
         homeRepository.AttackCharacter(3, 11);
-        homeRepository.AttackCharacter(3, 11);
-        homeRepository.AttackCharacter(3, 11);
         
         homeRepository.AttackCharacter(3, 11);
-        
+
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
     }
 }
