@@ -500,7 +500,21 @@ public class RepositoryTests
     public void RepositoryCanAttackNewCharactersAndOnModifierChangesHitpoints()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("ModifierChangesHitpoints").Options;
+            .UseInMemoryDatabase("ModifierChangesHitPoints").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("can increase hitPoints");
+        
+        homeRepository.SetModifier(1, 12, "Constitution");
+
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(6));
+    }
+    [Test]
+    public void RepositoryCanAttackNewCharactersAndOnLowerModifierDoesNotChangeHitpoints()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("ModifierDoesNotChangeHitPoints").Options;
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
