@@ -661,10 +661,10 @@ public class RepositoryTests
         homeRepository.AttackCharacter(3, 11);
         homeRepository.AttackCharacter(3, 11);
         homeRepository.AttackCharacter(3, 11);
+        homeRepository.AttackCharacter(3, 11);
         
         homeRepository.AttackCharacter(3, 11);
         
-
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
     }
 }
