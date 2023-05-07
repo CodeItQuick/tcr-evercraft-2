@@ -158,7 +158,7 @@ public class HomeRepository : IHomeRepository
             var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
             dnDCharacters.ForEach(x => { 
                 x.ExperiencePoints += 1000;
-                var constitutionModifier = 0;
+                var constitutionModifier = (int) x.ConstitutionModifier < 12 ? 0 : 0;
                 x.HitPoints += 5 + constitutionModifier;
             });
             _applicationDbContext.SaveChanges();
