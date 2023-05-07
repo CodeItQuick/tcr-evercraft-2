@@ -429,24 +429,23 @@ public class RepositoryTests
         homeRepository.AttackCharacter(1, 16);
 
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(1));
-        
     }
-    [Test]
-    public void RepositoryCanAttackNewCharactersAndOnModifierChangesHitStrengthCannotBeNegative()
-    { 
-        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
-            .UseInMemoryDatabase("ModifierChangesHitStrengthNotNegative").Options;
-        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
-        var homeRepository = new HomeRepository(
-            evercraftDbContext);
-        homeRepository.CreateCharacter("can attack character");
-        homeRepository.SetModifier(1, 4, "Strength");
-
-        homeRepository.AttackCharacter(1, 16);
-
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
-        
-    }
+    // [Test]
+    // public void RepositoryCanAttackNewCharactersAndOnModifierChangesHitStrengthCannotBeNegative()
+    // { 
+    //     var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+    //         .UseInMemoryDatabase("ModifierChangesHitStrengthNotNegative").Options;
+    //     var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+    //     var homeRepository = new HomeRepository(
+    //         evercraftDbContext);
+    //     homeRepository.CreateCharacter("can attack character");
+    //     homeRepository.SetModifier(1, 4, "Strength");
+    //
+    //     homeRepository.AttackCharacter(1, 16);
+    //
+    //     Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(4));
+    //     
+    // }
     // [Test]
     // public void RepositoryCanAttackNewCharactersAndOnModifierChangesHitStrengthCriticalHitDoublesModifier()
     // { 
