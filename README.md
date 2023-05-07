@@ -1,7 +1,15 @@
 # EVERCRAFT Kata with TCR
 
 This is the evercraft Kata developed purely using TCR. The most notable effect of TCR is a lot of frequent
-committing, as can be seen by the relatively few hours and high commit numbers in this repository.
+committing, as can be seen by the relatively few hours and high commit numbers in this repository. The first
+iteration of this kata is completed, admittedly with some very unique rules implemented. These are:
+
+1. Characters that have a lower strength get hit harder.
+2. When attacking, the highest character level present gets added to the damage given.
+
+These rules were somewhat implemented as a result of TCR. It would have been difficult to refactor the code after
+I had figured out these bugs were in there/the code was slightly wrong from a requirements point of view.
+I can still probably go through the refactor later, but put it off to "finish" the project.
 
 # What is TCR?
 
@@ -34,7 +42,7 @@ the manner the tests are written so that they always pass, etc.
 
 
 # Requirements Complete:
-* [ ] Core (First Iteration)
+* [x] Core (First Iteration)
 * [x] Create Character - Character has name, can edit name, can add/remove
 * [x] Alignment
 * [x] Armor & HitPoints
@@ -43,4 +51,4 @@ the manner the tests are written so that they always pass, etc.
 * [x] Character Has Ability Scores
 * [x] Character Has Ability Modifiers
 * [x] Character Can Gain Experience
-* [ ] Character Can Level
+* [x] Character Can Level
