@@ -166,10 +166,14 @@ public class HomeRepository : IHomeRepository
         var dnDCharacter = _applicationDbContext.DnDCharacters.Find(id);
         if (dnDCharacter != null)
         {
-            dnDCharacter = ModifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
             if (modifierType.ToLower().Equals("constitution"))
             {
-                dnDCharacter.HitPoints += ModifierTable[modifierIdx];
+                if (ModifierTable[(int)dnDCharacter.ConstitutionModifier] < ModifierTable[modifierIdx])
+                {
+                    dnDCharacter.HitPoints += ModifierTable[modifierIdx];
+                }
+                
+                dnDCharacter = ModifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
             }
 
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);

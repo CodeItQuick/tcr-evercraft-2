@@ -518,7 +518,7 @@ public class RepositoryTests
         var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
         var homeRepository = new HomeRepository(
             evercraftDbContext);
-        homeRepository.CreateCharacter("can increase HitPoints");
+        homeRepository.CreateCharacter("can increase HitPoint");
         
         homeRepository.SetModifier(1, 12, "Constitution");
 
