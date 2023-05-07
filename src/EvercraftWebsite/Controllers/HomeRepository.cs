@@ -150,10 +150,13 @@ public class HomeRepository : IHomeRepository
         var coreDamage = (int) character.StrengthModifier > 10 ? 1: 1 - ModifierTable[(int) character.StrengthModifier];
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage : coreDamage;
 
-        if (character.HitPoints <= damageAmt)
+        var characterDied = character.HitPoints <= damageAmt;
+        if (characterDied)
         {
             _applicationDbContext.DnDCharacters.Remove(attackedCharacter);
             _applicationDbContext.SaveChanges();
+            var dnDCharacters = _applicationDbContext.DnDCharacters.ToList();
+            dnDCharacters.ForEach(x => x.ExperiencePoints += 1000);
             return;
         }
         
