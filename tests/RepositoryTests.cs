@@ -575,4 +575,24 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
         Assert.That(evercraftDbContext.DnDCharacters.Last().ExperiencePoints, Is.EqualTo(1000));
     }
+    [Test]
+    public void RepositoryCanAttackNewCharactersAndAtOneHitpointDiesHeroGainsALevel()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanGainLevels").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("can attack character");
+        homeRepository.CreateCharacter("Gained Experience Character");
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        
+        homeRepository.AttackCharacter(1, 11);
+        
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
+        Assert.That(evercraftDbContext.DnDCharacters.Last().ExperiencePoints, Is.EqualTo(1000));
+    }
 }
