@@ -525,7 +525,7 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(6));
     }
     [Test]
-    public void RepositoryCanAttackNewCharactersAndOnFifteenModifierBosstsHp()
+    public void RepositoryCanAttackNewCharactersAndOnFifteenModifierBoostsHp()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("ModifierFifteenBoostsHp").Options;
@@ -554,5 +554,23 @@ public class RepositoryTests
 
         Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(7));
         
+    }
+    [Test]
+    public void RepositoryCanAttackNewCharactersAndAtOneHitpointDiesHeroGainsExperience()
+    { 
+        var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
+            .UseInMemoryDatabase("CanGainExperience").Options;
+        var evercraftDbContext = new EvercraftDbContext(dbContextOptions);
+        var homeRepository = new HomeRepository(
+            evercraftDbContext);
+        homeRepository.CreateCharacter("can attack character");
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        homeRepository.AttackCharacter(1, 11);
+        
+        homeRepository.AttackCharacter(1, 11);
+        
+        Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(0));
     }
 }
