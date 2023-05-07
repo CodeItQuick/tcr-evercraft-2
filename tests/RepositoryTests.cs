@@ -605,6 +605,7 @@ public class RepositoryTests
             evercraftDbContext);
         homeRepository.CreateCharacter("can attack character");
         homeRepository.CreateCharacter("Gained Experience Character");
+        homeRepository.SetModifier(2, 13, "Constitution");
         homeRepository.AttackCharacter(1, 11);
         homeRepository.AttackCharacter(1, 11);
         homeRepository.AttackCharacter(1, 11);
@@ -613,6 +614,6 @@ public class RepositoryTests
         homeRepository.AttackCharacter(1, 11);
         
         Assert.That(evercraftDbContext.DnDCharacters.Count(), Is.EqualTo(1));
-        Assert.That(evercraftDbContext.DnDCharacters.Last().HitPoints, Is.EqualTo(10));
+        Assert.That(evercraftDbContext.DnDCharacters.Last().HitPoints, Is.EqualTo(11));
     }
 }
