@@ -42,5 +42,5 @@ the manner the tests are written so that they always pass, etc.
 * [x] Character Can Be Damaged
 * [x] Character Has Ability Scores
 * [x] Character Has Ability Modifiers
-* [ ] Character Can Gain Experience
+* [x] Character Can Gain Experience
 * [ ] Character Can Level

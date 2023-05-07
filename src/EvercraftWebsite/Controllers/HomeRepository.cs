@@ -148,6 +148,7 @@ public class HomeRepository : IHomeRepository
 
         // weaker enemies get hit harder, stronger enemies only get hit for 1 damage
         var coreDamage = (int) character.StrengthModifier > 10 ? 1: 1 - ModifierTable[(int) character.StrengthModifier];
+        // highest level characters experience level gets added to the damage
         var characterExperiencePoints = _applicationDbContext.DnDCharacters.OrderBy(x => x.ExperiencePoints).Last().ExperiencePoints;
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage + characterExperiencePoints / 1000 :
             coreDamage + characterExperiencePoints / 1000;
