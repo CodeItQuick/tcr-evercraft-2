@@ -147,7 +147,7 @@ public class HomeRepository : IHomeRepository
         if (character.Armor >= effectiveArmor) return;
 
         
-        var coreDamage = (int) character.StrengthModifier > 10 ? 1: 1 + ModifierTable[(int) character.StrengthModifier];
+        var coreDamage = (int) character.StrengthModifier < 10 ? 1: 1 + ModifierTable[(int) character.StrengthModifier];
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage : coreDamage;
 
         if (character.HitPoints <= damageAmt)
