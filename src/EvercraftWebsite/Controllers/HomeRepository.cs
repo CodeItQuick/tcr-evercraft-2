@@ -167,6 +167,10 @@ public class HomeRepository : IHomeRepository
         if (dnDCharacter != null)
         {
             dnDCharacter = ModifierHandler[modifierType.ToLower()](modifierIdx, dnDCharacter);
+            if (modifierType.ToLower().Equals("constitution"))
+            {
+                dnDCharacter.HitPoints += ModifierTable[modifierIdx];
+            }
 
             _applicationDbContext.DnDCharacters.Update(dnDCharacter);
         }
