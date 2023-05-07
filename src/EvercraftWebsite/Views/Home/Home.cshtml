@@ -85,7 +85,7 @@
                                     <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
                                     <label for="editedCharisma" class="form-label">Charisma: @dnDCharacter.CharismaModifier.ToString()</label>
                                     <input type="number" class="form-control" id="editedCharisma" name="modifierNumber" value="" />
-                                    <input type="text" class="form-control" id="editedCharisma" name="modifierType" value="Charisma" />
+                                    <input type="hidden" class="form-control" id="editedCharisma" name="modifierType" value="Charisma" />
                                 </div>
                                 <button
                                     type="submit"
@@ -93,6 +93,81 @@
                                     asp-action="EditModifiers"
                                     class="btn btn-primary">
                                     Edit Charisma
+                                </button>
+                            </form>
+                            <form method="POST" action="EditModifiers">
+                                <div class="mb-3">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <label for="editedIntelligence" class="form-label">Intelligence: @dnDCharacter.IntelligenceModifier.ToString()</label>
+                                    <input type="number" class="form-control" id="editedIntelligence" name="modifierNumber" value="" />
+                                    <input type="hidden" class="form-control" id="editedIntelligence" name="modifierType" value="Intelligence" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="EditModifiers"
+                                    class="btn btn-primary">
+                                    Edit Intelligence
+                                </button>
+                            </form>
+                            <form method="POST" action="EditModifiers">
+                                <div class="mb-3">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <label for="editedStrength" class="form-label">Strength: @dnDCharacter.StrengthModifier.ToString()</label>
+                                    <input type="number" class="form-control" id="editedStrength" name="modifierNumber" value="" />
+                                    <input type="hidden" class="form-control" id="editedStrength" name="modifierType" value="Strength" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="EditModifiers"
+                                    class="btn btn-primary">
+                                    Edit Strength
+                                </button>
+                            </form>
+                            <form method="POST" action="EditModifiers">
+                                <div class="mb-3">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <label for="editedDexterity" class="form-label">Dexterity: @dnDCharacter.DexterityModifier.ToString()</label>
+                                    <input type="number" class="form-control" id="editedDexterity" name="modifierNumber" value="" />
+                                    <input type="hidden" class="form-control" id="editedDexterity" name="modifierType" value="Dexterity" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="EditModifiers"
+                                    class="btn btn-primary">
+                                    Edit Dexterity
+                                </button>
+                            </form>
+                            <form method="POST" action="EditModifiers">
+                                <div class="mb-3">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <label for="editedWisdom" class="form-label">Wisdom: @dnDCharacter.WisdomModifier.ToString()</label>
+                                    <input type="number" class="form-control" id="editedWisdom" name="modifierNumber" value="" />
+                                    <input type="hidden" class="form-control" id="editedWisdom" name="modifierType" value="Wisdom" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="EditModifiers"
+                                    class="btn btn-primary">
+                                    Edit Wisdom
+                                </button>
+                            </form>
+                            <form method="POST" action="EditModifiers">
+                                <div class="mb-3">
+                                    <input type="hidden" class="form-control" id="id" name="id" value="@dnDCharacter.Id" />
+                                    <label for="editedConstitution" class="form-label">Constitution: @dnDCharacter.ConstitutionModifier.ToString()</label>
+                                    <input type="number" class="form-control" id="editedConstitution" name="modifierNumber" value="" />
+                                    <input type="hidden" class="form-control" id="editedConstitution" name="modifierType" value="Constitution" />
+                                </div>
+                                <button
+                                    type="submit"
+                                    asp-controller="Home"
+                                    asp-action="EditModifiers"
+                                    class="btn btn-primary">
+                                    Edit Constitution
                                 </button>
                             </form>
                         </div>
