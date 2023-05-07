@@ -140,24 +140,25 @@ public class HomeRepository : IHomeRepository
 
     public void AttackCharacter(int attackedCharacterId, int randomDieRoll)
     {
-        var dnDCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
+        var attackedCharacter = _applicationDbContext.DnDCharacters.Find(attackedCharacterId);
         
-        if (dnDCharacter is not { } character ) return;
+        if (attackedCharacter is not { } character ) return;
         var effectiveArmor = randomDieRoll - ModifierTable[(int) character.DexterityModifier];
         if (character.Armor >= effectiveArmor) return;
 
+        
         var coreDamage = (int) character.StrengthModifier < 10 ? 1: 1 + ModifierTable[(int) character.StrengthModifier];
         var damageAmt = randomDieRoll == 20 ? 2 * coreDamage : coreDamage;
 
         if (character.HitPoints <= damageAmt)
         {
-            _applicationDbContext.DnDCharacters.Remove(dnDCharacter);
+            _applicationDbContext.DnDCharacters.Remove(attackedCharacter);
             _applicationDbContext.SaveChanges();
             return;
         }
         
-        dnDCharacter.HitPoints -= damageAmt;
-        _applicationDbContext.DnDCharacters.Update(dnDCharacter);
+        attackedCharacter.HitPoints -= damageAmt;
+        _applicationDbContext.DnDCharacters.Update(attackedCharacter);
         _applicationDbContext.SaveChanges();
     }
 
