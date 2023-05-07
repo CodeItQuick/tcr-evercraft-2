@@ -506,8 +506,8 @@ public class RepositoryTests
             evercraftDbContext);
         homeRepository.CreateCharacter("can increase hitpoints");
         
-        homeRepository.SetModifier(1, 10, "Constitution");
+        homeRepository.SetModifier(1, 12, "Constitution");
 
-        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(5));
+        Assert.That(evercraftDbContext.DnDCharacters.First().HitPoints, Is.EqualTo(6));
     }
 }
