@@ -576,7 +576,7 @@ public class RepositoryTests
         Assert.That(evercraftDbContext.DnDCharacters.Last().ExperiencePoints, Is.EqualTo(1000));
     }
     [Test]
-    public void RepositoryCanAttackNewCharactersAndAtOneHitpointDiesHeroGainsALevelAndHitpoints()
+    public void RepositoryCanAttackNewCharactersAndAtOneHitPointDiesHeroGainsALevelAndHitPoints()
     { 
         var dbContextOptions = new DbContextOptionsBuilder<EvercraftDbContext>()
             .UseInMemoryDatabase("CanGainLevels").Options;
