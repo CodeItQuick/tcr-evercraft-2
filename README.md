@@ -32,13 +32,16 @@ TCR Seems to Encourage:
 2. Frequent Committing
 3. Frequently adding tests
 4. More care in what you're doing
-5. Velocity/a lot of work seems to get outputted at high quality over short periods of time
+5. Velocity/a lot of work seems to get outputted
 
 TCR Also has some pitfalls:
 1. There's a lot of "cheating" going on - initiating running the tests to get code in there,
 the manner the tests are written so that they always pass, etc.
 2. Encourages developers to be more rigid in their approach to developing
 3. Strongly discourages regression in the code
+
+In retrospect this method did result in less incentive to refactor, and therefore ugly code. For that
+reason I probably wouldn't do it in a production environment.
 
 
 # Requirements Complete:
